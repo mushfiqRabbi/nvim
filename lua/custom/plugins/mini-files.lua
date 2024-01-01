@@ -1,0 +1,55 @@
+return {
+  -- 'mushfiqRabbi/mini.files',
+  -- version = false,
+  -- config = function()
+  --   require('mini.files').setup {
+  --     mappings = {
+  --       go_in = 'L',
+  --       go_in_plus = 'l',
+  --       go_out = 'H',
+  --       go_out_plus = 'h',
+  --     },
+  --
+  --     windows = {
+  --       preview = true,
+  --       width_focus = function()
+  --         local MiniFiles = require 'mini.files'
+  --         if math.floor(vim.o.columns * 0.3) < 40 then
+  --           return 40
+  --         else
+  --           return math.floor(vim.o.columns * 0.3)
+  --         end
+  --       end,
+  --       width_preview = function()
+  --         local MiniFiles = require 'mini.files'
+  --         if MiniFiles.get_fs_entry().fs_type == 'directory' then
+  --           return 25
+  --         else
+  --           if math.floor(vim.o.columns * 0.4) < 50 then
+  --             return 50
+  --           else
+  --             return math.floor(vim.o.columns * 0.4)
+  --           end
+  --         end
+  --       end,
+  --     },
+  --   }
+  --   local minifiles_toggle = function(in_cwd)
+  --     if not MiniFiles.close() then
+  --       if in_cwd then
+  --         MiniFiles.open(nil, false)
+  --       else
+  --         MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
+  --       end
+  --     end
+  --   end
+  --
+  --   vim.keymap.set('n', '<leader>me', function()
+  --     minifiles_toggle(false)
+  --   end, { noremap = true, silent = true, desc = '[M]iniFiles [E]xplore' })
+  --
+  --   vim.keymap.set('n', '<leader>ME', function()
+  --     minifiles_toggle(true)
+  --   end, { noremap = true, silent = true, desc = '[M]iniFiles [E]xplore' })
+  -- end,
+}
