@@ -3,7 +3,7 @@ return {
   opts = {
     preset = "modern",
     spec = {
-      -- { "<leader>c", group = "+code/ium" },
+      { "<leader>c", group = "+code/ium" },
       { "<leader>ch", icon = { icon = "󰻞 " } },
       { "<leader>g", group = "+git/generate" },
       { "<leader>gd", group = "+dotfile", icon = { icon = "󰘓" } },
