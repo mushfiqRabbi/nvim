@@ -1,0 +1,72 @@
+return {
+  -- "nvim-telescope/telescope.nvim",
+  -- opts = function(_, opts)
+  --   local actions = require("telescope.actions")
+  --   local open_with_trouble = function(...)
+  --     return require("trouble.providers.telescope").open_with_trouble(...)
+  --   end
+  --   local open_selected_with_trouble = function(...)
+  --     return require("trouble.sources.telescope").open(...)
+  --   end
+  --
+  --   opts.defaults.layout_strategy = "flex"
+  --   if opts.defaults.layout_config ~= nil then
+  --     if opts.defaults.layout_config.horizontal ~= nil then
+  --       opts.defaults.layout_config.horizontal.preview_cutoff = 1
+  --       opts.defaults.layout_config.horizontal.preview_width = 0.475
+  --     else
+  --       opts.defaults.layout_config.horizontal = {
+  --         preview_cutoff = 1,
+  --         preview_width = 0.475,
+  --       }
+  --     end
+  --     if opts.defaults.layout_config.vertical ~= nil then
+  --       opts.defaults.layout_config.vertical.preview_cutoff = 1
+  --       opts.defaults.layout_config.vertical.mirror = true
+  --     else
+  --       opts.defaults.layout_config.vertical = {
+  --         preview_cutoff = 1,
+  --         mirror = true,
+  --       }
+  --     end
+  --   else
+  --     opts.defaults.layout_config = {
+  --       horizontal = {
+  --         preview_cutoff = 1,
+  --         preview_width = 0.475,
+  --       },
+  --       vertical = {
+  --         mirror = true,
+  --         preview_cutoff = 1,
+  --       },
+  --     }
+  --   end
+  --   opts.defaults.dynamic_preview_title = true
+  --
+  --   opts.defaults.mappings.i["<c-K>"] = false
+  --   opts.defaults.mappings.n["<c-K>"] = false
+  --   opts.defaults.mappings.i["<a-t>"] = false
+  --   opts.defaults.mappings.i["<c-x>"] = false
+  --   opts.defaults.mappings.n["<c-x>"] = false
+  --   opts.defaults.mappings.i["<a-k>"] = false
+  --   opts.defaults.mappings.n["<a-k>"] = false
+  --   opts.defaults.mappings.i["<c-t>"] = actions.select_tab
+  --   opts.defaults.mappings.i["<a-f>"] = actions.preview_scrolling_right
+  --   opts.defaults.mappings.n["<a-f>"] = actions.preview_scrolling_right
+  --   opts.defaults.mappings.i["<C-f>"] = actions.results_scrolling_right
+  --   opts.defaults.mappings.n["<c-f>"] = actions.results_scrolling_right
+  --   opts.defaults.mappings.i["<a-b>"] = actions.preview_scrolling_left
+  --   opts.defaults.mappings.n["<a-b>"] = actions.preview_scrolling_left
+  --   opts.defaults.mappings.i["<C-b>"] = actions.results_scrolling_left
+  --   opts.defaults.mappings.n["<c-b>"] = actions.results_scrolling_left
+  --   opts.defaults.mappings.i["<c-q>"] = open_selected_with_trouble
+  --   opts.defaults.mappings.n["<c-q>"] = open_selected_with_trouble
+  --   opts.defaults.mappings.i["<a-q>"] = open_with_trouble
+  --   opts.defaults.mappings.n["<a-q>"] = open_with_trouble
+  --   opts.defaults.mappings.i["<c-s>"] = actions.select_horizontal
+  --   opts.defaults.mappings.n["<c-s>"] = actions.select_horizontal
+  -- end,
+  -- keys = {
+  --   { "<leader>/", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Search in buffer" },
+  -- },
+}

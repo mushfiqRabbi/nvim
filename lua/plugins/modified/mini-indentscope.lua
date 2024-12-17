@@ -1,0 +1,35 @@
+return {
+  -- "echasnovski/mini.indentscope",
+  -- opts = {
+  --   symbol = "▏",
+  --   options = {
+  --     indent_at_cursor = false,
+  --     try_as_border = false,
+  --   },
+  -- },
+  -- init = function()
+  --   vim.api.nvim_create_autocmd("FileType", {
+  --     pattern = {
+  --       "help",
+  --       "alpha",
+  --       "dashboard",
+  --       "neo-tree",
+  --       "neo-tree-popup",
+  --       "Trouble",
+  --       "trouble",
+  --       "lazy",
+  --       "mason",
+  --       "notify",
+  --       "toggleterm",
+  --       "lazyterm",
+  --       "lspinfo",
+  --       "checkhealth",
+  --       "noice",
+  --     },
+  --     callback = function()
+  --       ---@diagnostic disable-next-line: inject-field
+  --       vim.b.miniindentscope_disable = true
+  --     end,
+  --   })
+  -- end,
+}
