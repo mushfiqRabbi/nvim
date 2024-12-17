@@ -4,7 +4,7 @@ return {
   config = function()
     local neocodeium = require("neocodeium")
     neocodeium.setup({
-      -- silent = true,
+      silent = true,
       filetypes = {
         TelescopePrompt = false,
       },
