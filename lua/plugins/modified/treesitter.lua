@@ -9,7 +9,7 @@ return {
       "tmux",
       "prisma",
     }
-    for index, value in ipairs(parsers) do
+    for _, value in ipairs(parsers) do
       table.insert(opts.ensure_installed, value)
     end
   end,

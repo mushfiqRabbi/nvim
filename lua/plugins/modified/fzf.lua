@@ -11,5 +11,6 @@ return {
   },
   opts = function(_, opts)
     opts[1] = "borderless_full"
+    opts.fzf_opts["--no-scrollbar"] = false
   end,
 }

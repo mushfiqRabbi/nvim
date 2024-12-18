@@ -28,10 +28,16 @@ return {
       },
     },
     indent = {
-      -- char = "▏",
-      hl = "IndentDark",
+      indent = {
+        char = "▏",
+        hl = "IndentDark",
+      },
       scope = {
-        -- char = "▏",
+        char = "▏",
+        hl = "IndentLight",
+      },
+      chunk = {
+        enabled = true,
         hl = "IndentLight",
       },
     },
