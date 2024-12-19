@@ -1,7 +1,5 @@
 return {
   "ibhagwan/fzf-lua",
-  -- BUG: use latest when fixed
-  commit = "71de69c",
   dependencies = {
     "junegunn/fzf",
     build = "./install --bin",
