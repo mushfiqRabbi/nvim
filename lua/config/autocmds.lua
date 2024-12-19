@@ -16,7 +16,6 @@
 -- })
 
 -- Usercommands
--- test
 vim.api.nvim_create_user_command("GenerateDotIgnore", function()
   local root = require("lazyvim.util").root()
   vim.cmd(
