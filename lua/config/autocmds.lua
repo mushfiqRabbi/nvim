@@ -54,4 +54,5 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
 -- NOTE: shade and tint from https://maketintsandshades.com/#3b4261
 vim.api.nvim_set_hl(0, "IndentDark", { fg = "#292e44" }) -- 30% shade
 vim.api.nvim_set_hl(0, "IndentLight", { fg = "#4f5571" }) -- 10% tint
-vim.cmd("hi MatchParen guibg=#4f5571") -- 10% tint
+-- NOTE: shade and tint from https://maketintsandshades.com/#292e42
+vim.cmd("hi MatchParen guibg=#545868") -- 20% tint
