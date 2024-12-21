@@ -19,6 +19,6 @@ return {
     config.defaults.keymap.builtin["<c-h>"] = "toggle-help"
     config.defaults.keymap.builtin["<M-f>"] = "toggle-fullscreen"
     config.defaults.keymap.builtin["<M-w>"] = "toggle-preview-wrap"
-    config.defaults.keymap.fzf["ctrl-u"] = "unix-line-discard"
+    config.defaults.keymap.fzf["ctrl-c"] = "unix-line-discard"
   end,
 }
