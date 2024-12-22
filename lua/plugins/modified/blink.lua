@@ -4,8 +4,8 @@ return {
     keymap = {
       preset = "enter",
       ["<C-space>"] = { "show", "hide", "fallback" },
-      ["<C-e>"] = {},
-      ["<A-e>"] = { "show_documentation", "hide_documentation", "fallback" },
+      -- ["<C-e>"] = {},
+      ["<C-e>"] = { "show_documentation", "hide_documentation", "fallback" },
     },
     completion = {
       documentation = {
