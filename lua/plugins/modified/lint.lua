@@ -18,6 +18,8 @@ return {
     local linters_by_ft = {
       sh = { "dotenv_linter" },
       zsh = { "zsh" },
+      -- FIX: codespell not working, maybe nvim.lint issue.
+      -- ["*"] = { "cspell", "codespell" },
       ["*"] = { "cspell" },
     }
 
