@@ -18,7 +18,7 @@ return {
     local linters_by_ft = {
       sh = { "dotenv_linter" },
       zsh = { "zsh" },
-      ["*"] = { "cspell", "codespell" },
+      ["*"] = { "cspell" },
     }
 
     for key, value in pairs(linters_by_ft) do
