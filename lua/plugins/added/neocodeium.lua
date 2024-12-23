@@ -11,9 +11,9 @@ return {
 
       root_dir = { ".bzr", ".git", ".hg", ".svn", "_FOSSIL_", "package.json", ".root" },
     })
-    vim.keymap.set("i", "<A-f>", function()
+    vim.keymap.set("i", "<C-g>", function()
       require("neocodeium").accept()
-    end)
+    end, { noremap = true })
     vim.keymap.set("i", "<A-w>", function()
       require("neocodeium").accept_word()
     end)
