@@ -15,10 +15,10 @@ return {
 
     config.defaults.keymap.builtin["<c-f>"] = "preview-down"
     config.defaults.keymap.builtin["<c-b>"] = "preview-up"
-    config.defaults.keymap.builtin["<c-p>"] = "toggle-preview"
+    -- config.defaults.keymap.builtin["<c-p>"] = "toggle-preview"
     -- config.defaults.keymap.builtin["<c-h>"] = "toggle-help"
-    config.defaults.keymap.builtin["<M-f>"] = "toggle-fullscreen"
-    config.defaults.keymap.builtin["<M-w>"] = "toggle-preview-wrap"
-    config.defaults.keymap.fzf["ctrl-z"] = "unix-line-discard"
+    -- config.defaults.keymap.builtin["<M-f>"] = "toggle-fullscreen"
+    -- config.defaults.keymap.builtin["<M-w>"] = "toggle-preview-wrap"
+    config.defaults.keymap.fzf["ctrl-u"] = "unix-line-discard"
   end,
 }
