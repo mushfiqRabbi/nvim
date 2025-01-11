@@ -42,14 +42,14 @@ end, {})
 --   end,
 -- })
 
-vim.api.nvim_create_autocmd({ "BufEnter" }, {
-  pattern = { "*" },
-  callback = function()
-    if vim.bo.filetype == "snacks_notif" then
-      vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-w><C-w>", true, false, true), "n", false)
-    end
-  end,
-})
+-- vim.api.nvim_create_autocmd({ "BufEnter" }, {
+--   pattern = { "*" },
+--   callback = function()
+--     if vim.bo.filetype == "snacks_notif" then
+--       vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-w><C-w>", true, false, true), "n", false)
+--     end
+--   end,
+-- })
 
 -- NOTE: shade and tint from https://maketintsandshades.com/#3b4261
 vim.api.nvim_set_hl(0, "IndentDark", { fg = "#292e44" }) -- 30% shade

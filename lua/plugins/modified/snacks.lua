@@ -44,5 +44,11 @@ return {
     scope = {
       cursor = false,
     },
+
+    styles = {
+      notification = {
+        focusable = false,
+      },
+    },
   },
 }
