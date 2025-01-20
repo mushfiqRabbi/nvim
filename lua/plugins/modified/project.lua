@@ -1,5 +1,6 @@
 return {
   "ahmedkhalf/project.nvim",
+  enabled = false,
   opts = {
     manual_mode = false,
     detection_methods = { "pattern" },
