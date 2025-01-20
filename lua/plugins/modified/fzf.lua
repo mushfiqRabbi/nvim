@@ -1,5 +1,6 @@
 return {
   "ibhagwan/fzf-lua",
+  enabled = false,
   keys = {
     { "<leader>/", "<cmd>FzfLua grep_curbuf<cr>", desc = "Search in Buffer" },
   },

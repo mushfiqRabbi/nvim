@@ -21,6 +21,7 @@ require("lazy").setup({
     -- { import = "lazyvim.plugins.extras.coding.luasnip" },
 
     -- INFO: EDITOR
+    { import = "lazyvim.plugins.extras.editor.snacks_picker" },
     -- { import = "lazyvim.plugins.extras.editor.telescope" },
 
     -- INFO: FORMATTING
