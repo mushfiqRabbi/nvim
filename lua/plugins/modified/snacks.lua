@@ -1,5 +1,14 @@
 return {
   "folke/snacks.nvim",
+  keys = {
+    {
+      "<leader>/",
+      function()
+        Snacks.picker.lines()
+      end,
+      desc = "Buffer Lines",
+    },
+  },
   ---@type snacks.Config
   opts = {
     dashboard = {
