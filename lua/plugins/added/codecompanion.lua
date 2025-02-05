@@ -10,7 +10,7 @@ return {
         return require("codecompanion.adapters").extend("openai_compatible", {
           env = {
             url = "https://openrouter.ai/api",
-            api_key = "DEEPSEEK_API_KEY",
+            api_key = "OPENROUTER_API_KEY",
           },
           schema = {
             model = {

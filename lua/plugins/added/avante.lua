@@ -9,7 +9,7 @@ return {
     vendors = {
       deepseek = {
         __inherited_from = "openai",
-        api_key_name = "DEEPSEEK_API_KEY",
+        api_key_name = "OPENROUTER_API_KEY",
         endpoint = "https://openrouter.ai/api/v1",
         model = "deepseek/deepseek-r1-distill-llama-70b:free",
       },
