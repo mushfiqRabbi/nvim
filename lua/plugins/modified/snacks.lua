@@ -30,6 +30,9 @@ return {
         },
       },
     },
+    explorer = {
+      enabled = false,
+    },
     statuscolumn = {
       enabled = true,
       folds = {
