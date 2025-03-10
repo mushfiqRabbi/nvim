@@ -3,6 +3,9 @@ return {
   opts = {
     close_if_last_window = true,
     filesystem = {
+      follow_current_file = {
+        enabled = true,
+      },
       bind_to_cwd = true,
       filtered_items = {
         hide_dotfiles = false,
@@ -16,6 +19,11 @@ return {
           ".ignore",
           ".cspell",
         },
+      },
+    },
+    buffers = {
+      follow_current_file = {
+        enabled = true,
       },
     },
     window = {
