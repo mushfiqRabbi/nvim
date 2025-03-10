@@ -8,6 +8,22 @@ return {
       end,
       desc = "Buffer Lines",
     },
+    {
+      "<leader>e",
+      false,
+    },
+    {
+      "<leader>E",
+      false,
+    },
+    {
+      "<leader>fe",
+      false,
+    },
+    {
+      "<leader>fE",
+      false,
+    },
   },
   ---@type snacks.Config
   opts = {
