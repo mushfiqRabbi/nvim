@@ -14,7 +14,10 @@ return {
     },
     {
       "<leader>E",
-      false,
+      function()
+        Snacks.terminal.toggle("spf")
+      end,
+      desc = "Toggle SuperFile",
     },
     {
       "<leader>fe",
@@ -23,6 +26,15 @@ return {
     {
       "<leader>fE",
       false,
+    },
+    {
+      "<leader>fp",
+      function()
+        Snacks.picker.projects({
+          patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "package.json", "Makefile", ".root" },
+        })
+      end,
+      desc = "Projects",
     },
   },
   ---@type snacks.Config
@@ -49,13 +61,6 @@ return {
     explorer = {
       enabled = false,
     },
-    statuscolumn = {
-      enabled = true,
-      folds = {
-        open = true,
-        git_hl = true,
-      },
-    },
     indent = {
       indent = {
         char = "▏",
@@ -73,7 +78,13 @@ return {
     scope = {
       cursor = false,
     },
-
+    statuscolumn = {
+      enabled = true,
+      folds = {
+        open = true,
+        git_hl = true,
+      },
+    },
     styles = {
       notification = {
         relative = "editor",

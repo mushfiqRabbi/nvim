@@ -8,8 +8,8 @@ vim.keymap.set("n", "<leader>gds", "<cmd>GenerateDotSpell<cr>", { desc = "Spell"
 
 vim.keymap.set("n", "<leader>gi", "<cmd>Gitignore<cr>", { desc = "Git Ignore" })
 
-vim.keymap.set("n", "<leader>sf", function()
-  Snacks.terminal.toggle("spf")
-end, { desc = "Toggle SuperFile" })
+-- vim.keymap.set("n", "<leader>sf", function()
+--   Snacks.terminal.toggle("spf")
+-- end, { desc = "Toggle SuperFile" })
 
 -- vim.keymap.set("n", "<leader>ll", "<cmd>Lazy<cr>", { desc = "Lazy" })
