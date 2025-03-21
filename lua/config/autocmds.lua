@@ -51,26 +51,40 @@ end, {})
 --   end,
 -- })
 
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "sh", -- Trigger for sh filetype
+-- vim.api.nvim_create_autocmd("FileType", {
+--   pattern = "sh", -- Trigger for sh filetype
+--   callback = function(args)
+--     -- Get the file name
+--     local filename = vim.api.nvim_buf_get_name(args.buf)
+--
+--     -- Check if the file is any type of .env file
+--     if string.match(filename, "%.env.*") then
+--       -- Delay the check to ensure the LSP client has time to attach
+--       vim.defer_fn(function()
+--         -- Get all active LSP clients for the current buffer
+--         local clients = vim.lsp.get_clients({ bufnr = args.buf })
+--
+--         -- Iterate through the clients and stop bashls if it's attached
+--         for _, client in ipairs(clients) do
+--           if client.name == "bashls" then
+--             client.stop(client, true) -- Forcefully stop the client
+--           end
+--         end
+--       end, 500) -- Delay of 500ms
+--     end
+--   end,
+-- })
+
+vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
-    -- Get the file name
     local filename = vim.api.nvim_buf_get_name(args.buf)
-
-    -- Check if the file is any type of .env file
     if string.match(filename, "%.env.*") then
-      -- Delay the check to ensure the LSP client has time to attach
-      vim.defer_fn(function()
-        -- Get all active LSP clients for the current buffer
-        local clients = vim.lsp.get_clients({ bufnr = args.buf })
-
-        -- Iterate through the clients and stop bashls if it's attached
-        for _, client in ipairs(clients) do
-          if client.name == "bashls" then
-            client.stop(client, true) -- Forcefully stop the client
-          end
+      local client = vim.lsp.get_client_by_id(args.data.client_id)
+      if client then
+        if client.name == "bashls" then
+          client.stop(client, true) -- Forcefully stop the client
         end
-      end, 500) -- Delay of 500ms
+      end
     end
   end,
 })
