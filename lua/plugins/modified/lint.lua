@@ -18,7 +18,7 @@ return {
     local linters_by_ft = {
       sh = { "dotenv_linter" },
       zsh = { "zsh" },
-      ["*"] = { "cspell", "codespell" },
+      -- ["*"] = { "cspell", "codespell" },
     }
 
     for key, value in pairs(linters_by_ft) do
@@ -26,32 +26,35 @@ return {
     end
 
     local linters = {
-      cspell = {
-        condition = function(ctx)
-          return ctx.filename ~= ""
-            and vim.fs.find({ ".cspell" }, { path = ctx.dirname, type = "file", upward = true })[1]
-        end,
-      },
-      codespell = {
-        condition = function(ctx)
-          return ctx.filename ~= ""
-            and vim.fs.find({ ".codespell" }, { path = ctx.dirname, type = "file", upward = true })[1]
-        end,
-      },
+      -- cspell = {
+      --   condition = function(ctx)
+      --     return ctx.filename ~= ""
+      --       and vim.fs.find({ ".cspell" }, { path = ctx.dirname, type = "file", upward = true })[1]
+      --   end,
+      -- },
+      -- codespell = {
+      --   condition = function(ctx)
+      --     return ctx.filename ~= ""
+      --       and vim.fs.find({ ".codespell" }, { path = ctx.dirname, type = "file", upward = true })[1]
+      --   end,
+      -- },
       dotenv_linter = {
         condition = function(ctx)
-          local dotenv_file_names = { ".env", ".env.local" }
-
-          local function is_dotenv(filename)
-            for _, dotenv_file_name in ipairs(dotenv_file_names) do
-              if filename == dotenv_file_name then
-                return true
-              end
-            end
-            return false
+          if string.match(vim.fn.fnamemodify(ctx.filename, ":t"), "%.env.*") then
+            return true
           end
-
-          return is_dotenv(vim.fn.fnamemodify(ctx.filename, ":t"))
+          -- local dotenv_file_names = { ".env", ".env.local" }
+          --
+          -- local function is_dotenv(filename)
+          --   for _, dotenv_file_name in ipairs(dotenv_file_names) do
+          --     if filename == dotenv_file_name then
+          --       return true
+          --     end
+          --   end
+          --   return false
+          -- end
+          --
+          -- return is_dotenv(vim.fn.fnamemodify(ctx.filename, ":t"))
         end,
       },
     }
