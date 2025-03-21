@@ -9,8 +9,6 @@ return {
       { "<leader>gd", group = "+dotfile", icon = { icon = "󰘓" } },
       { "<leader>gdi", icon = { icon = "" } },
       { "<leader>gds", icon = { icon = "󰓆" } },
-      { "<leader>s", group = "+search/superfile" },
-      { "<leader>sf", icon = { icon = "󰙅" } },
     },
     win = {
       no_overlap = false,

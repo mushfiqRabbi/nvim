@@ -14,10 +14,7 @@ return {
     },
     {
       "<leader>E",
-      function()
-        Snacks.terminal.toggle("spf")
-      end,
-      desc = "Toggle SuperFile",
+      false,
     },
     {
       "<leader>fe",
