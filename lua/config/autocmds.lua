@@ -51,8 +51,26 @@ end, {})
 --   end,
 -- })
 
--- NOTE: shade and tint from https://maketintsandshades.com/#3b4261
-vim.api.nvim_set_hl(0, "IndentDark", { fg = "#292e44" }) -- 30% shade
-vim.api.nvim_set_hl(0, "IndentLight", { fg = "#4f5571" }) -- 10% tint
--- NOTE: shade and tint from https://maketintsandshades.com/#292e42
-vim.cmd("hi MatchParen guibg=#545868") -- 20% tint
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "sh", -- Trigger for sh filetype
+  callback = function(args)
+    -- Get the file name
+    local filename = vim.api.nvim_buf_get_name(args.buf)
+
+    -- Check if the file is any type of .env file
+    if string.match(filename, "%.env.*") then
+      -- Delay the check to ensure the LSP client has time to attach
+      vim.defer_fn(function()
+        -- Get all active LSP clients for the current buffer
+        local clients = vim.lsp.get_clients({ bufnr = args.buf })
+
+        -- Iterate through the clients and stop bashls if it's attached
+        for _, client in ipairs(clients) do
+          if client.name == "bashls" then
+            client.stop(client, true) -- Forcefully stop the client
+          end
+        end
+      end, 500) -- Delay of 500ms
+    end
+  end,
+})

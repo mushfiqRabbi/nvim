@@ -28,8 +28,24 @@ return {
       "<leader>fp",
       function()
         Snacks.picker.projects({
-          dev = { "~", "~/net/build", "~/net/test", "~/garage/build", "~/garage/test" },
-          patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "package.json", "Makefile", ".root" },
+          dev = {
+            "~/",
+            "~/.config",
+            "~/net/build",
+            "~/net/test",
+            "~/garage/build",
+            "~/garage/test",
+          },
+          patterns = {
+            ".git",
+            "_darcs",
+            ".hg",
+            ".bzr",
+            ".svn",
+            "package.json",
+            "Makefile",
+            ".root",
+          },
         })
       end,
       desc = "Projects",
