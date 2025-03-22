@@ -42,6 +42,8 @@ return {
         condition = function(ctx)
           if string.match(vim.fn.fnamemodify(ctx.filename, ":t"), "%.env.*") then
             return true
+          else
+            return false
           end
           -- local dotenv_file_names = { ".env", ".env.local" }
           --
