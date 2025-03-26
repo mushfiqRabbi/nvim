@@ -5,6 +5,7 @@
 -- vim.keymap.set("n", "<leader>m", "<cmd>Mason<cr>", { desc = "Mason" })
 vim.keymap.set("n", "<leader>gdi", "<cmd>GenerateDotIgnore<cr>", { desc = "Ignore" })
 vim.keymap.set("n", "<leader>gds", "<cmd>GenerateDotSpell<cr>", { desc = "Spell" })
+vim.keymap.set("n", "<leader>gdns", "<cmd>GenerateDotNoCSpell<cr>", { desc = "Spell" })
 
 vim.keymap.set("n", "<leader>gi", "<cmd>Gitignore<cr>", { desc = "Git Ignore" })
 

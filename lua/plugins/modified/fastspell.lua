@@ -19,10 +19,17 @@ return {
 
     -- decide when to run the spell checking (see :help events for full list)
     vim.api.nvim_create_autocmd({ "TextChanged", "TextChangedI", "BufEnter", "WinScrolled" }, {
-      callback = function(_)
+      callback = function(ctx)
         -- decide the area in your buffer that will be checked. This is the default configuration,
         -- and look for spelling mistakes ONLY in the lines of the bugger that are currently displayed
         -- for more advanced configurations see the section bellow
+        local dir = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(ctx.buf), ":h")
+
+        if vim.fs.find({ ".nocspell" }, { path = dir, type = "file", upward = true })[1] then
+          fastspell.sendSpellCheckRequest(0, 0)
+          return
+        end
+
         local first_line = vim.fn.line("w0") - 1
         local last_line = vim.fn.line("w$")
         fastspell.sendSpellCheckRequest(first_line, last_line)

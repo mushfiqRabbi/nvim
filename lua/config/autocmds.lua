@@ -34,6 +34,12 @@ vim.api.nvim_create_user_command("GenerateDotSpell", function()
   print("Created .cspell and .codespell file in " .. root)
 end, {})
 
+vim.api.nvim_create_user_command("GenerateDotNoCSpell", function()
+  local root = require("lazyvim.util").root()
+  vim.cmd("call writefile([], '" .. require("lazyvim.util").root() .. "/.nocspell" .. "')")
+  print("Created .nocspell file in " .. root)
+end, {})
+
 -- Restore cursor to Beam on leave.
 -- vim.api.nvim_create_autocmd({ "VimLeave", "VimSuspend" }, {
 --   pattern = { "*" },
