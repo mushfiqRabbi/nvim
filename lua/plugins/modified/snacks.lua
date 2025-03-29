@@ -3,10 +3,11 @@ return {
   keys = {
     {
       "<leader>/",
-      function()
-        Snacks.picker.lines()
-      end,
-      desc = "Buffer Lines",
+      -- function()
+      --   Snacks.picker.lines()
+      -- end,
+      -- desc = "Buffer Lines",
+      false,
     },
     {
       "<leader>e",
