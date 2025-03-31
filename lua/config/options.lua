@@ -13,6 +13,10 @@ vim.g.lazyvim_prettier_needs_config = false
 -- vim.opt.timeoutlen = 1000
 vim.opt.ttimeoutlen = 0
 
+vim.diagnostic.config({
+  virtual_lines = true,
+})
+
 -- vim.filetype.add({
 --   -- Detect and assign filetype based on the extension of the filename
 --   --   extension = {

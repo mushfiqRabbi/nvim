@@ -2,9 +2,10 @@ return {
   "neovim/nvim-lspconfig",
   opts = {
     diagnostics = {
-      virtual_text = {
-        prefix = "■",
-      },
+      virtual_text = false,
+      -- virtual_text = {
+      --   prefix = "■",
+      -- },
     },
     servers = {
       cssls = {},
