@@ -94,3 +94,26 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
   end,
 })
+
+-- NOTE: Diagnostic floating window when the cursor is on the current line
+
+vim.api.nvim_create_augroup("LspDiagnosticsFloat", { clear = true })
+
+vim.api.nvim_create_autocmd({ "CursorHold", "InsertLeave" }, {
+  group = "LspDiagnosticsFloat",
+  callback = function()
+    local cursor_pos = vim.api.nvim_win_get_cursor(0)
+    local line = cursor_pos[1] - 1 -- Convert to 0-based index
+    local bufnr = vim.api.nvim_get_current_buf()
+    local diagnostics = vim.diagnostic.get(bufnr, { lnum = line })
+
+    if #diagnostics > 0 then
+      vim.diagnostic.open_float(nil, {
+        focusable = false,
+        scope = "line", -- Use "line" instead of "cursor" to show diagnostics for the whole line
+        close_events = { "BufLeave", "CursorMoved", "InsertEnter" },
+        border = "solid",
+      })
+    end
+  end,
+})
