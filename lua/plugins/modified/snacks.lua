@@ -89,13 +89,40 @@ return {
         enabled = true,
         hl = "IndentLight",
         char = {
-          -- corner_top = "┌",
-          -- corner_bottom = "└",
-          corner_top = "╭",
-          corner_bottom = "╰",
+          corner_top = "┌",
+          corner_bottom = "└",
+          -- corner_top = "╭",
+          -- corner_bottom = "╰",
           horizontal = "─",
           vertical = "│",
           arrow = ">",
+        },
+      },
+    },
+    lazygit = {
+      config = {
+        gui = {
+          border = "single",
+        },
+      },
+    },
+    picker = {
+      layouts = {
+        default = {
+          layout = {
+            box = "horizontal",
+            width = 0.8,
+            min_width = 120,
+            height = 0.8,
+            {
+              box = "vertical",
+              border = "single",
+              title = "{title} {live} {flags}",
+              { win = "input", height = 1, border = "bottom" },
+              { win = "list", border = "none" },
+            },
+            { win = "preview", title = "{preview}", border = "single", width = 0.5 },
+          },
         },
       },
     },
@@ -109,10 +136,28 @@ return {
         git_hl = true,
       },
     },
+    ---@type table<string, snacks.win.Config>
     styles = {
+      ---@diagnostic disable-next-line: missing-fields
+      input = {
+        border = "single",
+      },
+      ---@diagnostic disable-next-line: missing-fields
       notification = {
-        relative = "editor",
         focusable = false,
+        border = "single",
+      },
+      ---@diagnostic disable-next-line: missing-fields
+      notification_history = {
+        border = "single",
+      },
+      ---@diagnostic disable-next-line: missing-fields
+      scratch = {
+        border = "single",
+      },
+      ---@diagnostic disable-next-line: missing-fields
+      snacks_image = {
+        border = "single",
       },
     },
   },

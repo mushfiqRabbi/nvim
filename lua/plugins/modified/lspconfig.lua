@@ -8,6 +8,9 @@ return {
         },
         -- prefix = "■",
       },
+      float = {
+        border = "solid",
+      },
     },
     servers = {
       cssls = {},
