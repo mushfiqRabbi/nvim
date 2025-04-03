@@ -28,14 +28,17 @@ return {
 
     local linters = {
       cspell = {
-        ---@diagnostic disable-next-line: unused-local
         condition = function(ctx)
+          if string.match(vim.fn.fnamemodify(ctx.filename, ":t"), "%.env.*") then
+            return false
+          end
+
           local nocspell_stat = vim.uv.fs_stat(LazyVim.root() .. "/.nocspell")
           if nocspell_stat and nocspell_stat.type == "file" then
             return false
-          else
-            return true
           end
+
+          return true
           -- return ctx.filename ~= ""
           -- and not vim.fs.find({ ".nocspell" }, { path = ctx.dirname, type = "file", upward = true })[1]
         end,
@@ -48,11 +51,11 @@ return {
       -- },
       dotenv_linter = {
         condition = function(ctx)
-          if string.match(vim.fn.fnamemodify(ctx.filename, ":t"), "%.env.*") then
-            return true
-          else
+          if not string.match(vim.fn.fnamemodify(ctx.filename, ":t"), "%.env.*") then
             return false
           end
+
+          return true
           -- local dotenv_file_names = { ".env", ".env.local" }
           --
           -- local function is_dotenv(filename)
