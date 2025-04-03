@@ -88,6 +88,15 @@ return {
       chunk = {
         enabled = true,
         hl = "IndentLight",
+        char = {
+          -- corner_top = "┌",
+          -- corner_bottom = "└",
+          corner_top = "╭",
+          corner_bottom = "╰",
+          horizontal = "─",
+          vertical = "│",
+          arrow = ">",
+        },
       },
     },
     scope = {

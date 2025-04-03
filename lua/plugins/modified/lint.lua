@@ -28,9 +28,16 @@ return {
 
     local linters = {
       cspell = {
+        ---@diagnostic disable-next-line: unused-local
         condition = function(ctx)
-          return ctx.filename ~= ""
-            and not vim.fs.find({ ".nocspell" }, { path = ctx.dirname, type = "file", upward = true })[1]
+          local nocspell_stat = vim.uv.fs_stat(LazyVim.root() .. "/.nocspell")
+          if nocspell_stat and nocspell_stat.type == "file" then
+            return false
+          else
+            return true
+          end
+          -- return ctx.filename ~= ""
+          -- and not vim.fs.find({ ".nocspell" }, { path = ctx.dirname, type = "file", upward = true })[1]
         end,
       },
       -- codespell = {
