@@ -15,6 +15,13 @@ vim.keymap.set("n", "<leader>gi", "<cmd>Gitignore<cr>", { desc = "Git Ignore" })
 
 -- vim.keymap.set("n", "<leader>ll", "<cmd>Lazy<cr>", { desc = "Lazy" })
 
+-- vim.keymap.set("n", "<leader>dl", function()
+--   local new_config = not vim.diagnostic.config().virtual_lines
+--   -- vim.diagnostic.config({ virtual_lines = new_config and { current_line = true } or false })
+--   vim.diagnostic.config({ virtual_lines = new_config })
+--   vim.diagnostic.config({ virtual_text = not new_config })
+-- end, { desc = "Toggle diagnostic virtual_lines" })
+
 -- NOTE: DELETED KEYMAPS
 --
 vim.keymap.del("n", "<leader>dph")
