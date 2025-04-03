@@ -18,6 +18,7 @@ return {
     local linters_by_ft = {
       sh = { "dotenv_linter" },
       zsh = { "zsh" },
+      ["*"] = { "cspell" },
       -- ["*"] = { "cspell", "codespell" },
     }
 
@@ -26,12 +27,12 @@ return {
     end
 
     local linters = {
-      -- cspell = {
-      --   condition = function(ctx)
-      --     return ctx.filename ~= ""
-      --       and vim.fs.find({ ".cspell" }, { path = ctx.dirname, type = "file", upward = true })[1]
-      --   end,
-      -- },
+      cspell = {
+        condition = function(ctx)
+          return ctx.filename ~= ""
+            and not vim.fs.find({ ".nocspell" }, { path = ctx.dirname, type = "file", upward = true })[1]
+        end,
+      },
       -- codespell = {
       --   condition = function(ctx)
       --     return ctx.filename ~= ""

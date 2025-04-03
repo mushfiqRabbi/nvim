@@ -1,6 +1,6 @@
 return {
   "lucaSartore/fastspell.nvim",
-
+  enabled = false,
   -- automatically run the installation script on windows and linux)
   -- if this doesn't work for some reason, you can
   build = function()

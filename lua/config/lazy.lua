@@ -24,6 +24,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.editor.snacks_picker" },
     { import = "lazyvim.plugins.extras.editor.dial" },
     { import = "lazyvim.plugins.extras.editor.inc-rename" },
+    { import = "lazyvim.plugins.extras.editor.mini-diff" },
     -- { import = "lazyvim.plugins.extras.editor.telescope" },
 
     -- INFO: FORMATTING
