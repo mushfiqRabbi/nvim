@@ -29,6 +29,16 @@ return {
     local linters = {
       cspell = {
         condition = function(ctx)
+          -- local buf = vim.api.nvim_get_current_buf()
+          -- local filetype = vim.bo[buf].filetype
+          local ignored_filetypes = {
+            "help",
+          }
+          local filetype = vim.bo.filetype
+          if vim.tbl_contains(ignored_filetypes, filetype) then
+            return false
+          end
+
           if string.match(vim.fn.fnamemodify(ctx.filename, ":t"), "%.env.*") then
             return false
           end

@@ -12,6 +12,8 @@ return {
         fg = "#4f5571", -- 10% tint
       }
       hl.MatchParen = {
+        bold = true,
+        fg = "#ff9e64",
         bg = "#545868", -- 20% tint
       }
     end,
