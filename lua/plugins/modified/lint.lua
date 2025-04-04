@@ -1,17 +1,17 @@
 return {
   "mfussenegger/nvim-lint",
   opts = function(_, opts)
-    ---@diagnostic disable-next-line: duplicate-set-field
-    function table.removekey(table, key)
-      local element = table[key]
-      table[key] = nil
-      return element
-    end
+    -- @diagnostic disable-next-line: duplicate-set-field
+    -- local function removekey(table, key)
+    -- local element = table[key]
+    -- table[key] = nil
+    -- return element
+    -- end
 
-    ---@diagnostic disable-next-line: unused-local
-    for key, value in pairs(opts.linters_by_ft) do
+    for key, _ in pairs(opts.linters_by_ft) do
       if key == "fish" then
-        table.removekey(opts.linters_by_ft, key)
+        opts.linters_by_ft[key] = nil
+        -- removekey(opts.linters_by_ft, key)
       end
     end
 
