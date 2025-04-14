@@ -28,7 +28,14 @@ return {
       mode = "n",
       body = "g",
       heads = {
-        { "e", "<cmd>lua require('spider').motion('ge')<CR>", { desc = "Previous end of word" } },
+        -- { "e", "<cmd>lua require('spider').motion('ge')<CR>", { desc = "Previous end of word" } },
+        {
+          "e",
+          function()
+            require("spider").motion("ge")
+          end,
+          { desc = "Previous end of word" },
+        },
       },
     })
   end,
