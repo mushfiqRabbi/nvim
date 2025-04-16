@@ -17,11 +17,12 @@ return {
 
     local formatters_by_ft = {
       html = { "rustywind" },
+      javascript = { "rustywind" },
       javascriptreact = { "rustywind" },
+      prisma = { lsp_format = "prefer" },
+      typescript = { "rustywind" },
       typescriptreact = { "rustywind" },
       zsh = { "shfmt" },
-      javascript = { "rustywind" },
-      typescript = { "rustywind" },
       ["_"] = { "trim_whitespace" },
     }
 
