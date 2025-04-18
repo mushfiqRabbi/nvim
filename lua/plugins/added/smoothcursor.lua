@@ -1,5 +1,6 @@
 return {
   "gen740/SmoothCursor.nvim",
+  enabled = false,
   event = "VeryLazy",
   config = function()
     ---@diagnostic disable-next-line: missing-fields
