@@ -1,7 +1,7 @@
 return {
 
   "mg979/vim-visual-multi",
-  enabled = false,
+  -- enabled = false,
   branch = "master",
   event = "VeryLazy",
 }

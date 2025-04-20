@@ -1,5 +1,6 @@
 return {
   "m00qek/baleia.nvim",
+  enabled = false,
   version = "*",
   config = function()
     vim.g.baleia = require("baleia").setup({})
