@@ -81,6 +81,9 @@ return {
           -- return is_dotenv(vim.fn.fnamemodify(ctx.filename, ":t"))
         end,
       },
+      gitlint = {
+        args = { "--ignore=body-is-missing" },
+      },
     }
 
     for key, value in pairs(linters) do
