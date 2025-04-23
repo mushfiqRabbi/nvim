@@ -6,6 +6,7 @@ return {
       "cspell",
       "prettierd",
       "rustywind",
+      "gitlint",
     }
 
     ---@diagnostic disable-next-line: unused-local

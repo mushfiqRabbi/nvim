@@ -18,6 +18,7 @@ return {
     local linters_by_ft = {
       sh = { "dotenv_linter" },
       zsh = { "zsh" },
+      gitcommit = { "gitlint" },
       ["*"] = { "cspell" },
       -- ["*"] = { "cspell", "codespell" },
     }
