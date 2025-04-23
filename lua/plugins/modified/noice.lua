@@ -10,14 +10,14 @@ return {
     },
     views = {
       cmdline_popupmenu = {
-        border = {
-          style = "single",
-        },
+        -- border = {
+        --   style = "single",
+        -- },
       },
       cmdline_popup = {
-        border = {
-          style = "single",
-        },
+        -- border = {
+        --   style = "single",
+        -- },
       },
     },
   },

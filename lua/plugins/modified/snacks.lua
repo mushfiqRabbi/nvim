@@ -88,43 +88,43 @@ return {
       chunk = {
         enabled = true,
         hl = "IndentLight",
-        char = {
-          corner_top = "┌",
-          corner_bottom = "└",
-          -- corner_top = "╭",
-          -- corner_bottom = "╰",
-          horizontal = "─",
-          vertical = "│",
-          arrow = ">",
-        },
+        -- char = {
+        -- corner_top = "┌",
+        -- corner_bottom = "└",
+        -- corner_top = "╭",
+        -- corner_bottom = "╰",
+        -- horizontal = "─",
+        -- vertical = "│",
+        -- arrow = ">",
+        -- },
       },
     },
     lazygit = {
       config = {
-        gui = {
-          border = "single",
-        },
+        -- gui = {
+        --   border = "single",
+        -- },
       },
     },
     picker = {
-      layouts = {
-        default = {
-          layout = {
-            box = "horizontal",
-            width = 0.8,
-            min_width = 120,
-            height = 0.8,
-            {
-              box = "vertical",
-              border = "single",
-              title = "{title} {live} {flags}",
-              { win = "input", height = 1, border = "bottom" },
-              { win = "list", border = "none" },
-            },
-            { win = "preview", title = "{preview}", border = "single", width = 0.5 },
-          },
-        },
-      },
+      -- layouts = {
+      -- default = {
+      --   layout = {
+      --     box = "horizontal",
+      --     width = 0.8,
+      --     min_width = 120,
+      --     height = 0.8,
+      --     {
+      --       box = "vertical",
+      --       border = "single",
+      --       title = "{title} {live} {flags}",
+      --       { win = "input", height = 1, border = "bottom" },
+      --       { win = "list", border = "none" },
+      --     },
+      --     { win = "preview", title = "{preview}", border = "single", width = 0.5 },
+      --   },
+      -- },
+      -- },
     },
     scope = {
       cursor = false,
@@ -139,26 +139,26 @@ return {
     ---@type table<string, snacks.win.Config>
     styles = {
       ---@diagnostic disable-next-line: missing-fields
-      input = {
-        border = "single",
-      },
+      -- input = {
+      --   border = "single",
+      -- },
       ---@diagnostic disable-next-line: missing-fields
       notification = {
         focusable = false,
-        border = "single",
+        -- border = "single",
       },
       ---@diagnostic disable-next-line: missing-fields
-      notification_history = {
-        border = "single",
-      },
+      -- notification_history = {
+      --   border = "single",
+      -- },
       ---@diagnostic disable-next-line: missing-fields
-      scratch = {
-        border = "single",
-      },
+      -- scratch = {
+      --   border = "single",
+      -- },
       ---@diagnostic disable-next-line: missing-fields
-      snacks_image = {
-        border = "single",
-      },
+      -- snacks_image = {
+      --   border = "single",
+      -- },
     },
   },
 }

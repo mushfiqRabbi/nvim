@@ -16,7 +16,7 @@ return {
     },
     win = {
       no_overlap = false,
-      border = "none",
+      border = "solid",
     },
     show_help = false,
     show_keys = false,
