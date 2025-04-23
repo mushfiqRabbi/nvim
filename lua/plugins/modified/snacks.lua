@@ -107,6 +107,15 @@ return {
       },
     },
     picker = {
+      previewers = {
+        git = {
+          builtin = false,
+        },
+        diff = {
+          builtin = false,
+          cmd = { "delta" },
+        },
+      },
       -- layouts = {
       -- default = {
       --   layout = {
