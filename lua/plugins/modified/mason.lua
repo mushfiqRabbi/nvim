@@ -2,7 +2,7 @@ return {
   "williamboman/mason.nvim",
   opts = function(_, opts)
     local servers = {
-      "codespell",
+      -- "codespell",
       "cspell",
       "prettierd",
       "rustywind",
