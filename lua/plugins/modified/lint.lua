@@ -34,6 +34,9 @@ return {
           -- local filetype = vim.bo[buf].filetype
           local ignored_filetypes = {
             "help",
+            "neo-tree",
+            "neo-tree-popup",
+            "grug-far",
           }
           local filetype = vim.bo.filetype
           if vim.tbl_contains(ignored_filetypes, filetype) then
