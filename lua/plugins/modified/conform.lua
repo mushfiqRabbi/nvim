@@ -1,15 +1,14 @@
 return {
   "stevearc/conform.nvim",
   opts = function(_, opts)
-    ---@diagnostic disable-next-line: duplicate-set-field
     function table.removekey(table, key)
       local element = table[key]
       table[key] = nil
       return element
     end
 
-    ---@diagnostic disable-next-line: unused-local
-    for key, value in pairs(opts.formatters_by_ft) do
+    -- Remove fish from formatters_by_ft
+    for key, _ in pairs(opts.formatters_by_ft) do
       if key == "fish" then
         table.removekey(opts.formatters_by_ft, key)
       end
@@ -79,12 +78,33 @@ return {
         end
         opts.formatters_by_ft[key] = function(bufnr)
           if filtered_table then
-            return { first(bufnr, "prettierd", "prettier"), unpack(filtered_table) }
+            return {
+              first(bufnr, "prettierd", "prettier"),
+              unpack(filtered_table),
+            }
           else
             return { first(bufnr, "prettierd", "prettier") }
           end
         end
       end
+    end
+
+    opts.formatters = opts.formatters or {}
+
+    if opts.formatters.stylua then
+      opts.formatters.stylua.append_args = { "--column-width=100" }
+    else
+      opts.formatters.stylua = {
+        append_args = { "--column-width=100" },
+      }
+    end
+
+    if opts.formatters.prettiered then
+      opts.formatters.prettiered.append_args = { "--print-width=100" }
+    else
+      opts.formatters.prettiered = {
+        append_args = { "--print-width=100" },
+      }
     end
   end,
 }
