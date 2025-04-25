@@ -17,40 +17,6 @@ return {
         bg = "#545868", -- 20% tint
       }
 
-      hl.SnacksPickerToggleRegex = {
-        bold = true,
-        italic = true,
-        fg = "#1f2335",
-        bg = "#c65e72",
-      }
-
-      hl.SnacksPickerToggleHidden = {
-        bold = true,
-        italic = true,
-        fg = "#1f2335",
-        bg = "#c65e72",
-      }
-
-      hl.SnacksPickerToggleFollow = {
-        bold = true,
-        italic = true,
-        fg = "#1f2335",
-        bg = "#c65e72",
-      }
-
-      hl.SnacksPickerToggleIgnored = {
-        bold = true,
-        italic = true,
-        fg = "#1f2335",
-        bg = "#c65e72",
-      }
-      hl.SnacksPickerToggleModified = {
-        bold = true,
-        italic = true,
-        fg = "#1f2335",
-        bg = "#c65e72",
-      }
-
       hl.SnacksPickerBorder = {
         fg = "#45475A",
         bg = "NONE",
@@ -91,6 +57,40 @@ return {
 
       hl.SnacksPickerInput = {
         bg = "#1a1b26",
+      }
+
+      hl.SnacksPickerToggleRegex = {
+        bold = true,
+        italic = true,
+        fg = "#1f2335",
+        bg = "#c65e72",
+      }
+
+      hl.SnacksPickerToggleHidden = {
+        bold = true,
+        italic = true,
+        fg = "#1f2335",
+        bg = "#c65e72",
+      }
+
+      hl.SnacksPickerToggleFollow = {
+        bold = true,
+        italic = true,
+        fg = "#1f2335",
+        bg = "#c65e72",
+      }
+
+      hl.SnacksPickerToggleIgnored = {
+        bold = true,
+        italic = true,
+        fg = "#1f2335",
+        bg = "#c65e72",
+      }
+      hl.SnacksPickerToggleModified = {
+        bold = true,
+        italic = true,
+        fg = "#1f2335",
+        bg = "#c65e72",
       }
     end,
   },
