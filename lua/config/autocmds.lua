@@ -117,3 +117,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
 --     end
 --   end,
 -- })
+
+-- vim.api.nvim_create_autocmd({ "BufEnter" }, {
+--   pattern = { "tmux.conf", "tmux.conf.local", ".tmux.conf" },
+--   callback = function()
+--     vim.lsp.start({
+--       name = "tmux",
+--       cmd = { "tmux-language-server" },
+--     })
+--   end,
+-- })
