@@ -7,6 +7,7 @@ return {
       { "<leader>dd", icon = { icon = "" } },
       { "<leader>di", icon = { icon = "" } },
       { "<leader>ds", icon = { icon = "󱀌" } },
+      { "<leader>t", group = "+btop", icon = { icon = "" } },
       -- { "<leader>c", group = "+code/ium" },
       -- { "<leader>ch", icon = { icon = "󰻞 " } },
       -- { "<leader>g", group = "+git/generate" },

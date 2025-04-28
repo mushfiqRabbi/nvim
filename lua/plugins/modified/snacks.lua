@@ -106,9 +106,26 @@ return {
     },
     -- lazygit = {
     --   config = {
-    --     gui = {
-    --       theme = {
-    --         inactiveBorderColor = { "#45475A" },
+    --     git = {
+    --       paging = {
+    --         -- colorArg = "always",
+    --         pager = table.concat({
+    --           "delta",
+    --           "--minus-style='syntax #37222c'",
+    --           "--minus-non-emph-style='syntax #37222c'",
+    --           "--minus-emph-style='syntax #713137'",
+    --           "--minus-empty-line-marker-style='syntax #37222c'",
+    --           "--line-numbers-minus-style='#914c54'",
+    --           "--plus-style='syntax #20303b'",
+    --           "--plus-non-emph-style='syntax #20303b'",
+    --           "--plus-emph-style='syntax #2c5a66'",
+    --           "--plus-empty-line-marker-style='syntax #20303b'",
+    --           "--line-numbers-plus-style='#449dab'",
+    --           "--line-numbers-zero-style='#3b4261'",
+    --           -- "--hunk-header-decoration-style='#45475A ul'",
+    --           -- "--dark", -- optional if you want delta in dark mode
+    --           "--paging=never", -- optional if you want no pager at all
+    --         }, " "),
     --       },
     --     },
     --   },
@@ -175,7 +192,9 @@ return {
         },
         diff = {
           builtin = false,
-          cmd = { "delta" },
+          cmd = {
+            "delta",
+          },
         },
       },
       -- layouts = {

@@ -1,4 +1,5 @@
 return {
+  enabled = false,
   "crnvl96/lazydocker.nvim",
   opts = {
     window = {

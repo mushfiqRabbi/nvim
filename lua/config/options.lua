@@ -4,8 +4,11 @@
 
 vim.opt.guicursor = vim.opt.guicursor + "c-t:ver25"
 -- vim.opt.guicursor = "n-v-sm:block,r:hor20,i-c-ci:ver25,a:blinkwait0-blinkoff500-blinkon500"
-vim.g.root_spec =
-  { { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json", "lua", ".root" }, "lsp", "cwd" }
+vim.g.root_spec = {
+  { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json", "lua", ".root" },
+  "lsp",
+  "cwd",
+}
 vim.opt.sidescrolloff = 0
 vim.opt.wrap = true
 -- vim.g.lazyvim_picker = "telescope"

@@ -10,10 +10,12 @@ vim.keymap.set("n", "<leader>ds", "<cmd>GenerateDotNoCSpell<cr>", { desc = "Gene
 vim.keymap.set("n", "<leader>gi", "<cmd>Gitignore<cr>", { desc = "Git Ignore" })
 
 vim.keymap.set("n", "<leader>dd", function()
-  Snacks.terminal.toggle("lazydocker", {
-    cwd = vim.fn.expand("$HOME"),
-  })
+  Snacks.terminal.toggle("lazydocker")
 end, { desc = "Toggle lazydocker" })
+
+vim.keymap.set("n", "<leader>tt", function()
+  Snacks.terminal.toggle("btop")
+end, { desc = "Toggle btop" })
 
 -- vim.keymap.set("n", "<leader>sf", function()
 --   Snacks.terminal.toggle("spf")
