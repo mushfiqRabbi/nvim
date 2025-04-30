@@ -9,7 +9,8 @@ return {
         fg = "#292e44", -- 30% shade
       }
       hl.IndentLight = {
-        fg = "#353b57", -- 10% shade
+        fg = "#4f5571", -- 10% tint
+        -- fg = "#353b57", -- 10% shade
       }
       hl.MatchParen = {
         bold = true,
