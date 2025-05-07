@@ -3,11 +3,11 @@ return {
   keys = {
     {
       "<leader>/",
-      -- function()
-      --   Snacks.picker.lines()
-      -- end,
-      -- desc = "Buffer Lines",
-      false,
+      function()
+        Snacks.picker.lines()
+      end,
+      desc = "Buffer Lines",
+      -- false,
     },
     {
       "<leader>e",
@@ -50,6 +50,48 @@ return {
         })
       end,
       desc = "Projects",
+    },
+    {
+      "<leader>S",
+      false,
+    },
+    {
+      "<leader>sR",
+      function()
+        local grug = require("grug-far")
+        -- local ext = vim.bo.buftype == "" and vim.fn.expand("%:e")
+        -- grug.open({
+        --   transient = true,
+        --   prefills = {
+        --     filesFilter = ext and ext ~= "" and "*." .. ext or nil,
+        --   },
+        -- })
+
+        grug.open({
+          transient = true,
+          prefills = {
+            paths = LazyVim.root(),
+          },
+        })
+      end,
+      mode = { "n", "v" },
+      desc = "Search and Replace",
+    },
+
+    {
+      "<leader>Ss",
+      function()
+        Snacks.scratch.select()
+      end,
+      desc = "Select Scratch Buffer",
+    },
+
+    {
+      "<leader>Sr",
+      function()
+        Snacks.picker.resume()
+      end,
+      desc = "Resume",
     },
   },
   ---@type snacks.Config
