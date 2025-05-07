@@ -7,7 +7,7 @@ return {
       { "<leader>dd", icon = { icon = "" } },
       { "<leader>di", icon = { icon = "" } },
       { "<leader>ds", icon = { icon = "󱀌" } },
-      { "<leader>S", group = "+Search", icon = { icon = "", color = "green" } },
+      { "<leader>S", group = "+Search/Select", icon = { icon = "", color = "green" } },
       { "<leader>t", group = "+btop", icon = { icon = "" } },
       -- { "<leader>c", group = "+code/ium" },
       -- { "<leader>ch", icon = { icon = "󰻞 " } },

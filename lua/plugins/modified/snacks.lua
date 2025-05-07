@@ -91,7 +91,7 @@ return {
       function()
         Snacks.picker.resume()
       end,
-      desc = "Resume",
+      desc = "Search Resume",
     },
   },
   ---@type snacks.Config
