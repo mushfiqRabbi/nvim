@@ -58,6 +58,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.vscode" },
 
     -- INFO: MODIFIED/ADDED
+    { import = "plugins" },
     { import = "plugins.modified" },
     { import = "plugins.added" },
   },
