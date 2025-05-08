@@ -127,3 +127,38 @@ vim.api.nvim_create_autocmd("LspAttach", {
 --     })
 --   end,
 -- })
+
+-- Auto stop LSP when no buffers are attached to the client
+vim.api.nvim_create_autocmd("LspDetach", {
+
+  group = vim.api.nvim_create_augroup("nuance-lsp-detach", { clear = true }),
+
+  callback = function(event)
+    vim.lsp.buf.clear_references()
+
+    vim.api.nvim_clear_autocmds({ group = "nuance-lsp-detach", buffer = event.buf })
+
+    vim.defer_fn(function()
+      -- Kill the LS process if no buffers are attached to the client
+
+      local cur_client = vim.lsp.get_client_by_id(event.data.client_id)
+
+      if cur_client == nil then
+        return
+      end
+
+      local attached_buffers_count = vim.tbl_count(cur_client.attached_buffers)
+
+      if attached_buffers_count == 0 then
+        local msg = "No attached buffers to client: " .. "___" .. cur_client.name .. "___" .. "\n"
+
+        msg = msg .. "Stopping language server: " .. "___" .. cur_client.name .. "___"
+
+        vim.notify(msg, vim.log.levels.INFO, { title = "LSP" })
+
+        ---@diagnostic disable-next-line: param-type-mismatch
+        cur_client.stop(true)
+      end
+    end, 200)
+  end,
+})
