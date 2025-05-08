@@ -13,7 +13,7 @@ return {
         })
       end,
       mode = { "n", "v" },
-      desc = "Search and Replace in Current File",
+      desc = "Search and Replace (Current File)",
     },
   },
 }
