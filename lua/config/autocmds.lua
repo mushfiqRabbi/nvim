@@ -150,11 +150,11 @@ vim.api.nvim_create_autocmd("LspDetach", {
       local attached_buffers_count = vim.tbl_count(cur_client.attached_buffers)
 
       if attached_buffers_count == 0 then
-        local msg = "No attached buffers to client: " .. "___" .. cur_client.name .. "___" .. "\n"
-
-        msg = msg .. "Stopping language server: " .. "___" .. cur_client.name .. "___"
-
-        vim.notify(msg, vim.log.levels.INFO, { title = "LSP" })
+        vim.notify(
+          "***" .. cur_client.name .. "***: No buffers. Stopping server.",
+          vim.log.levels.INFO,
+          { title = "LSP" }
+        )
 
         ---@diagnostic disable-next-line: param-type-mismatch
         cur_client.stop(true)
