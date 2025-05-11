@@ -129,36 +129,97 @@ vim.api.nvim_create_autocmd("LspAttach", {
 -- })
 
 -- Auto stop LSP when no buffers are attached to the client
+-- vim.api.nvim_create_autocmd("LspDetach", {
+--
+--   group = vim.api.nvim_create_augroup("nuance-lsp-detach", { clear = true }),
+--
+--   callback = function(event)
+--     vim.lsp.buf.clear_references()
+--
+--     vim.api.nvim_clear_autocmds({ group = "nuance-lsp-detach", buffer = event.buf })
+--
+--     vim.defer_fn(function()
+--       -- Kill the LS process if no buffers are attached to the client
+--
+--       local cur_client = vim.lsp.get_client_by_id(event.data.client_id)
+--
+--       if cur_client == nil then
+--         return
+--       end
+--
+--       local attached_buffers_count = vim.tbl_count(cur_client.attached_buffers)
+--
+--       if attached_buffers_count == 0 then
+--         vim.notify(
+--           "***" .. cur_client.name .. "***: No buffers. Stopping server.",
+--           vim.log.levels.INFO,
+--           { title = "LSP" }
+--         )
+--
+--         ---@diagnostic disable-next-line: param-type-mismatch
+--         cur_client.stop(true)
+--       end
+--     end, 200)
+--   end,
+-- })
+
+local lsp_detach = {}
+local uv = vim.uv
 vim.api.nvim_create_autocmd("LspDetach", {
+  group = vim.api.nvim_create_augroup("lsp-auto-stop", { clear = true }),
+  callback = vim.schedule_wrap(function(args)
+    local client_id = args.data.client_id
+    local client = vim.lsp.get_client_by_id(client_id)
 
-  group = vim.api.nvim_create_augroup("nuance-lsp-detach", { clear = true }),
+    if not client_id or not client then
+      return
+    end
 
-  callback = function(event)
-    vim.lsp.buf.clear_references()
-
-    vim.api.nvim_clear_autocmds({ group = "nuance-lsp-detach", buffer = event.buf })
-
-    vim.defer_fn(function()
-      -- Kill the LS process if no buffers are attached to the client
-
-      local cur_client = vim.lsp.get_client_by_id(event.data.client_id)
-
-      if cur_client == nil then
+    if lsp_detach[client_id] ~= nil then
+      if lsp_detach[client_id].timer ~= nil then
+        local timer = lsp_detach[client_id].timer
+        timer:stop()
+        timer:start(1000 * 60, 0, function()
+          timer:stop()
+          local client_buffers = vim.lsp.get_buffers_by_client_id(client_id)
+          if #client_buffers == 0 then
+            timer:close()
+            vim.notify(
+              "***" .. client.name .. "***" .. ": Stopping lsp client",
+              vim.log.levels.INFO,
+              { title = "LSP Auto Stop" }
+            )
+            client:stop(true)
+            lsp_detach[client_id] = nil
+          end
+        end)
         return
       end
+    end
 
-      local attached_buffers_count = vim.tbl_count(cur_client.attached_buffers)
+    if lsp_detach[client_id] == nil then
+      lsp_detach[client_id] = client
+    end
 
-      if attached_buffers_count == 0 then
-        vim.notify(
-          "***" .. cur_client.name .. "***: No buffers. Stopping server.",
-          vim.log.levels.INFO,
-          { title = "LSP" }
-        )
-
-        ---@diagnostic disable-next-line: param-type-mismatch
-        cur_client.stop(true)
+    if lsp_detach[client_id].timer == nil then
+      local timer = uv.new_timer()
+      if timer then
+        timer:start(1000 * 60, 0, function()
+          timer:stop()
+          local client_buffers = vim.lsp.get_buffers_by_client_id(client_id)
+          if #client_buffers == 0 then
+            timer:close()
+            vim.notify(
+              "***" .. client.name .. "***" .. ": Stopping lsp client",
+              vim.log.levels.INFO,
+              { title = "LSP Auto Stop" }
+            )
+            client:stop(true)
+            lsp_detach[client_id] = nil
+          end
+        end)
+        lsp_detach[client_id].timer = timer
       end
-    end, 200)
-  end,
+    end
+  end),
 })
