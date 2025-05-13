@@ -1,4 +1,4 @@
-local workarounds_needed = true
+local workarounds_needed = false
 
 if not workarounds_needed then
   return {}
