@@ -8,6 +8,9 @@ return {
     -- add it to the winbar instead
     -- opts.winbar = { lualine_b = { "filename" }, lualine_c = { navic } }
 
+    -- remove the component C
+    table.remove(opts.sections.lualine_c)
+
     opts.options.component_separators = "│"
     opts.options.section_separators = ""
 
@@ -20,40 +23,40 @@ return {
       },
     }
 
-    local lint_progress = function()
-      local linters = require("lint").get_running()
-      if #linters == 0 then
-        return "󰦕 "
-      end
-      return "󱉶 " .. table.concat(linters, ", ")
-    end
-    table.insert(opts.sections.lualine_x, { lint_progress })
-
-    -- opts.sections.lualine_y = {
-    --   { "progress" },
-    -- }
-
+    -- local lint_progress = function()
+    --   local linters = require("lint").get_running()
+    --   if #linters == 0 then
+    --     return "󰦕 "
+    --   end
+    --   return "󱉶 " .. table.concat(linters, ", ")
+    -- end
+    -- table.insert(opts.sections.lualine_x, { lint_progress })
+    --
     opts.sections.lualine_y = {
-      {
-        "lsp_status",
-        icon = " ",
-        symbols = {
-          spinner = {
-            "⢄",
-            "⢂",
-            "⢁",
-            "⡁",
-            "⡈",
-            "⡐",
-            "⡠",
-          },
-          -- done = " ",
-        },
-      },
+      { "location" },
     }
 
+    -- opts.sections.lualine_y = {
+    --   {
+    --     "lsp_status",
+    --     icon = " ",
+    --     symbols = {
+    --       spinner = {
+    --         "⢄",
+    --         "⢂",
+    --         "⢁",
+    --         "⡁",
+    --         "⡈",
+    --         "⡐",
+    --         "⡠",
+    --       },
+    --       -- done = " ",
+    --     },
+    --   },
+    -- }
+
     opts.sections.lualine_z = {
-      { "location", color = { gui = "bold" } },
+      { "progress", color = { gui = "bold" } },
     }
   end,
 }
