@@ -169,10 +169,13 @@ local uv = vim.uv
 local stop_client_timeout = function(client_id, timer)
   timer:start(1000 * 60, 0, function()
     timer:stop()
-    if #vim.lsp.get_buffers_by_client_id(client_id) == 0 then
+    if
+      not vim.lsp.client_is_stopped(client_id)
+      and #(vim.lsp.get_buffers_by_client_id(client_id)) == 0
+    then
       timer:close()
       vim.notify(
-        "***" .. vim.lsp.get_client_by_id(client_id).name .. "***" .. ": Stopping lsp client",
+        "***" .. (vim.lsp.get_client_by_id(client_id)).name .. "***" .. ": Stopping lsp client",
         vim.log.levels.INFO,
         { title = "LSP Auto Stop" }
       )
@@ -185,18 +188,15 @@ end
 vim.api.nvim_create_autocmd("LspDetach", {
   group = vim.api.nvim_create_augroup("lsp-auto-stop", { clear = true }),
   callback = vim.schedule_wrap(function(args)
-    vim.print(args.data)
     if not args.data.client_id then
       return
     else
-      if lsp_detach[args.data.client_id] == nil then
-        lsp_detach[args.data.client_id] = {}
-        lsp_detach[args.data.client_id].timer = uv.new_timer()
-        stop_client_timeout(args.data.client_id, lsp_detach[args.data.client_id].timer)
+      if not lsp_detach[args.data.client_id] then
+        lsp_detach[args.data.client_id] = { timer = uv.new_timer() }
       else
         lsp_detach[args.data.client_id].timer:stop()
-        stop_client_timeout(args.data.client_id, lsp_detach[args.data.client_id].timer)
       end
+      stop_client_timeout(args.data.client_id, lsp_detach[args.data.client_id].timer)
     end
   end),
 })
