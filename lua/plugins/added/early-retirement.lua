@@ -3,7 +3,5 @@ return {
   event = "VeryLazy",
   opts = {
     retirementAgeMins = 5,
-    ignoreAltFile = false,
-    deleteBufferWhenFileDeleted = true,
   },
 }
