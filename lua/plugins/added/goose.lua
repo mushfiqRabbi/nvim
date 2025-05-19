@@ -1,5 +1,6 @@
 return {
   "azorng/goose.nvim",
+  event = "VeryLazy",
   config = function()
     require("goose").setup({
       default_global_keymaps = false, -- If false, disables all default global keymaps
