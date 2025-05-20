@@ -5,15 +5,23 @@ return {
   lazy = false,
   version = false, -- set this if you want to always pull the latest change
   opts = {
-    provider = "deepseek",
-    vendors = {
-      deepseek = {
-        __inherited_from = "openai",
-        api_key_name = "OPENROUTER_API_KEY",
-        endpoint = "https://openrouter.ai/api/v1",
-        model = "deepseek/deepseek-r1-distill-llama-70b:free",
-      },
+    provider = "gemini",
+    gemini = {
+      endpoint = "https://generativelanguage.googleapis.com/v1beta/models",
+      model = "gemini-2.0-flash",
+      timeout = 30000, -- Timeout in milliseconds
+      temperature = 0,
+      max_tokens = 8192,
     },
+    -- provider = "deepseek",
+    -- vendors = {
+    --   deepseek = {
+    --     __inherited_from = "openai",
+    --     api_key_name = "OPENROUTER_API_KEY",
+    --     endpoint = "https://openrouter.ai/api/v1",
+    --     model = "deepseek/deepseek-r1-distill-llama-70b:free",
+    --   },
+    -- },
   },
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
   build = "make",
