@@ -15,7 +15,7 @@ return {
     servers = {
       cssls = {},
       cssmodules_ls = {},
-      emmet_language_server = {},
+      emmet_ls = {},
       html = {},
     },
   },
