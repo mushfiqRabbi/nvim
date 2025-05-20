@@ -182,9 +182,9 @@ local stop_client_timeout = function(client_id, timer)
           { title = "LSP Auto Stop" }
         )
         vim.lsp.stop_client(client_id, true)
-        lsp_detach[client_id] = nil
       end
       timer:close()
+      lsp_detach[client_id] = nil
     end)
   )
 end
