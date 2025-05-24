@@ -1,6 +1,6 @@
 return {
   "azorng/goose.nvim",
-  enabled = false,
+  -- enabled = false,
   event = "VeryLazy",
   config = function()
     require("goose").setup({
