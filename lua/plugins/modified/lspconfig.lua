@@ -3,11 +3,10 @@ return {
   opts = {
     diagnostics = {
       virtual_text = {
-        prefix = "🭰",
-        suffix = "🭵",
         severity = {
           max = vim.diagnostic.severity.INFO,
         },
+        -- prefix = "■",
       },
       float = {
         border = "solid",
