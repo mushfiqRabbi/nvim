@@ -2,9 +2,9 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 
--- vim.opt.guicursor =
--- "n-v-c-sm:block-blinkon500-blinkoff500,i-ci-ve:ver25-blinkon500-blinkoff500,r-cr-o:hor20-blinkon500-blinkoff500,t:block-blinkon500-blinkoff500-TermCursor,c-t:ver25-blinkon500-blinkoff500"
-vim.opt.guicursor = vim.opt.guicursor + "c-t:ver25"
+vim.opt.guicursor =
+  "n-v-c-sm:block-blinkon500-blinkoff500,i-ci-ve:ver25-blinkon500-blinkoff500,r-cr-o:hor20-blinkon500-blinkoff500,t:block-blinkon500-blinkoff500-TermCursor,c-t:ver25-blinkon500-blinkoff500"
+-- vim.opt.guicursor = vim.opt.guicursor + "c-t:ver25"
 -- vim.opt.guicursor = "n-v-sm:block,r:hor20,i-c-ci:ver25,a:blinkwait0-blinkoff500-blinkon500"
 vim.g.root_spec = {
   { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json", "lua", ".root" },
