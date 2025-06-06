@@ -14,7 +14,7 @@ return {
       hl.MatchParen = {
         bold = true,
         fg = "#ffc777",
-        bg = "#636da6",
+        bg = "#545c7e",
       }
     end,
   },
