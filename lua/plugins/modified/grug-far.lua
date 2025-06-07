@@ -16,4 +16,9 @@ return {
       desc = "Search and Replace (Current File)",
     },
   },
+  opts = {
+    showCompactInputs = true,
+    -- showInputsTopPadding = false,
+    -- showInputsBottomPadding = false,
+  },
 }
