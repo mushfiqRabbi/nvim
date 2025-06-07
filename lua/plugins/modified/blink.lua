@@ -18,7 +18,7 @@ return {
           columns = { { "kind_icon" }, { "label", gap = 1 } },
           components = {
             label = {
-              width = { fill = true, max = 60 },
+              -- width = { fill = true, max = 60 },
               text = function(ctx)
                 local highlights_info = require("colorful-menu").blink_highlights(ctx)
                 if highlights_info ~= nil then
