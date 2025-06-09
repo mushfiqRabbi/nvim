@@ -13,12 +13,11 @@ return {
     buffer_leader_key = "m",
     hide_handbook = true,
     hide_buffer_handbook = true,
+    separate_save_and_remove = true,
+    save_key = "git_root",
     mappings = {
-      toggle = "a",
-      open_horizontal = "s",
       next_item = "n",
       prev_item = "p",
     },
-    save_key = "git_root",
   },
 }
