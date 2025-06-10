@@ -205,7 +205,7 @@ vim.api.nvim_create_autocmd("LspDetach", {
   end,
 })
 
-vim.api.nvim_create_autocmd("BufRead", {
+vim.api.nvim_create_autocmd("BufEnter", {
   group = vim.api.nvim_create_augroup("KittySetVarBufRead", { clear = true }),
   callback = function(args)
     local filepath = vim.fn.fnamemodify(args.file, ":p")
