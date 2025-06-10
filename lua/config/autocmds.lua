@@ -215,3 +215,10 @@ vim.api.nvim_create_autocmd("BufRead", {
     io.stdout:write("\x1b]1337;SetUserVar=current_file=" .. encoded .. "\007")
   end,
 })
+
+vim.api.nvim_create_autocmd("VimLeave", {
+  group = vim.api.nvim_create_augroup("KittyUnsetVarOnExit", { clear = true }),
+  callback = function()
+    io.stdout:write("\x1b]1337;SetUserVar=current_file\007")
+  end,
+})
