@@ -204,3 +204,14 @@ vim.api.nvim_create_autocmd("LspDetach", {
     end
   end,
 })
+
+vim.api.nvim_create_autocmd("BufRead", {
+  group = vim.api.nvim_create_augroup("KittySetVarBufRead", { clear = true }),
+  callback = function(args)
+    local filepath = vim.fn.fnamemodify(args.file, ":p")
+    local encoded = vim.fn.system("printf %s " .. vim.fn.shellescape(filepath) .. " | base64")
+    encoded = encoded:gsub("%s+", "") -- Trim any trailing whitespace or newline
+
+    io.stdout:write("\x1b]1337;SetUserVar=current_file=" .. encoded .. "\007")
+  end,
+})
