@@ -215,14 +215,40 @@ vim.api.nvim_create_autocmd("LspDetach", { -- Creates an autocommand for the Lsp
 })
 
 -- Autocommand to set Kitty terminal variable on BufEnter
+
+local last_set_kitty_var = nil
+
 vim.api.nvim_create_autocmd("BufEnter", { -- Creates an autocommand for the BufEnter event
   group = vim.api.nvim_create_augroup("KittySetVarBufRead", { clear = true }), -- Creates an autogroup for KittySetVarBufRead with clear option
   callback = function(args) -- Callback function to execute
+    local exclude_filetypes = {
+      help = true,
+      gitcommit = true,
+      trouble = true,
+      ["grug-far"] = true,
+      [""] = true,
+    }
+
+    local filetype = vim.bo[args.buf].filetype
+
+    -- Exclude buffers related to snack-picker or neo-tree (floating or special buffers)
+    if
+      exclude_filetypes[filetype]
+      or filetype:match("^snacks")
+      or filetype:match("^neo%-tree")
+      or args.file:match("nvim/runtime/lua/man%.lua$")
+    then
+      return
+    end
+
     local filepath = vim.fn.fnamemodify(args.file, ":p") -- Get the full file path
     local encoded = vim.fn.system("printf %s " .. vim.fn.shellescape(filepath) .. " | base64") -- Encode the filepath to base64
     encoded = encoded:gsub("%s+", "") -- Trim any trailing whitespace or newline
 
-    io.stdout:write("\x1b]1337;SetUserVar=current_file=" .. encoded .. "\007") -- Write the encoded filepath to Kitty terminal
+    if last_set_kitty_var ~= encoded then
+      last_set_kitty_var = encoded
+      io.stdout:write("\x1b]1337;SetUserVar=current_file=" .. encoded .. "\007") -- Write the encoded filepath to Kitty terminal
+    end
   end,
 })
 
