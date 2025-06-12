@@ -1,23 +1,23 @@
 return {
-  "mushfiqRabbi/arrow.nvim",
-  -- event = "VeryLazy",
+  "otavioschwanck/arrow.nvim",
   dependencies = {
-    -- { "nvim-tree/nvim-web-devicons" },
-    -- or if using `mini.icons`
     { "echasnovski/mini.icons" },
   },
   opts = {
     show_icons = true,
-    separate_by_branch = true,
     leader_key = ";",
     buffer_leader_key = "m",
-    hide_handbook = true,
-    hide_buffer_handbook = true,
     separate_save_and_remove = true,
-    save_key = "git_root",
+    global_bookmarks = true,
+    per_buffer_config = {
+      lines = 5,
+    },
     mappings = {
+      toggle = "a",
+      open_horizontal = "s",
       next_item = "n",
       prev_item = "p",
+      remove = "r",
     },
   },
 }
