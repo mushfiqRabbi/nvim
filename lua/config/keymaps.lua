@@ -17,6 +17,45 @@ vim.keymap.set("n", "<leader>tt", function()
   Snacks.terminal.toggle("btop")
 end, { desc = "Toggle btop" })
 
+vim.keymap.set("n", "<leader>ai", function()
+  local function get_current_file()
+    local path = vim.api.nvim_buf_get_name(0)
+    return path ~= "" and path or nil
+  end
+
+  local function make_text_prompt(file)
+    return table.concat({
+      "Please view the file located at " .. file .. ".",
+      "After viewing, print *only* the absolute path to this file,",
+      "and then acknowledge that you are ready for the next prompt.",
+    }, " ")
+  end
+
+  local function run_goose_in_kitty(prompt)
+    vim.system({
+      "kitten",
+      "@",
+      "launch",
+      "--type=window",
+      "--location=vsplit",
+      "--bias=30",
+      "--cwd=current",
+      "zsh",
+      "-ic",
+      string.format('goose run -t "%s" -s', prompt),
+    })
+  end
+
+  local file = get_current_file()
+  if not file then
+    vim.notify("No file open in current buffer", vim.log.levels.WARN)
+    return
+  end
+
+  local prompt = make_text_prompt(file)
+  run_goose_in_kitty(prompt)
+end, { desc = "Ai" })
+
 -- vim.keymap.set("n", "<leader>sf", function()
 --   Snacks.terminal.toggle("spf")
 -- end, { desc = "Toggle SuperFile" })

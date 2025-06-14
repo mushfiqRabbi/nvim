@@ -1,5 +1,5 @@
 return {
-  "otavioschwanck/arrow.nvim",
+  "mushfiqRabbi/arrow.nvim",
   dependencies = {
     { "echasnovski/mini.icons" },
   },

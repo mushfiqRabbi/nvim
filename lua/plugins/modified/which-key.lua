@@ -1,7 +1,6 @@
 return {
   "folke/which-key.nvim",
   opts = {
-    preset = "modern",
     spec = {
       { "<leader>a", group = "ai", icon = { icon = "" } },
       { "<leader>d", group = "+dotfile/lazydocker", icon = { icon = "" } },
