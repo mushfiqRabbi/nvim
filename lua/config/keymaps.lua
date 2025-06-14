@@ -25,9 +25,11 @@ vim.keymap.set("n", "<leader>ai", function()
 
   local function make_text_prompt(file)
     return table.concat({
-      "Please view the file located at " .. file .. ".",
-      "After viewing, print *only* the absolute path to this file,",
-      "and then acknowledge that you are ready for the next prompt.",
+      "The following is the absolute path of the file currently open in my Neovim editor:",
+      file .. ".",
+      "For now, just store this path for context—do not view or analyze the file yet.",
+      "Simply print the absolute path exactly as-is, and confirm that you're ready for the next prompt.",
+      "In future prompts, you may use this file context if necessary, depending on the question I ask.",
     }, " ")
   end
 
