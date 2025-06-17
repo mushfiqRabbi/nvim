@@ -4,7 +4,6 @@ return {
   opts = {
     winblend = 50,
     winblend_gui = 50,
-    floating_windows = true,
     diagnostics_error_symbol = "-",
     diagnostics_warn_symbol = "-",
     diagnostics_hint_symbol = "-",
