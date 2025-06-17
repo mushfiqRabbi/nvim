@@ -1,5 +1,8 @@
 return {
   "nvim-neo-tree/neo-tree.nvim",
+  dependencies = {
+    "stevearc/oil.nvim",
+  },
   opts = {
     close_if_last_window = true,
     filesystem = {
@@ -27,7 +30,22 @@ return {
       },
     },
     window = {
-      mappings = { ["P"] = { "toggle_preview", config = { use_float = true, use_image_nvim = true } } },
+      mappings = {
+        ["P"] = { "toggle_preview", config = { use_float = true, use_image_nvim = true } },
+        ["O"] = {
+          function(state)
+            local node = state.tree:get_node()
+            if node.type == "directory" then
+              require("oil").open_float(node.path)
+            elseif node.type == "file" then
+              require("oil").open_float(node._parent_id)
+            else
+              vim.print("Not a file or directory")
+            end
+          end,
+          desc = "Open in float oil window",
+        },
+      },
     },
     event_handlers = {
       {
