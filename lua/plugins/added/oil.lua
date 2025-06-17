@@ -2,7 +2,7 @@ return {
   "stevearc/oil.nvim",
 
   -- Optional dependencies
-  dependencies = { { "echasnovski/mini.icons", opts = {} } },
+  dependencies = { { "echasnovski/mini.icons" } },
   -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
   -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
   lazy = true,
@@ -15,8 +15,8 @@ return {
     float = {
       padding = 0,
       -- max_width and max_height can be integers or a float between 0 and 1 (e.g. 0.4 for 40%)
-      max_width = 90,
-      max_height = 35,
+      max_width = 0.4,
+      max_height = 0.8,
       border = "solid",
       -- This is the config that will be passed to nvim_open_win.
       -- Change values here to customize the layout
