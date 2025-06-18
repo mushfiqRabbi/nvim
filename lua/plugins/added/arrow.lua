@@ -3,6 +3,24 @@ return {
   dependencies = {
     { "echasnovski/mini.icons" },
   },
+  keys = {
+    {
+      ";",
+      function()
+        require("ui").openMenu()
+      end,
+      desc = "Arrow File Mappings",
+      nowait = true,
+    },
+    {
+      "m",
+      function()
+        require("arrow.buffer_ui").openMenu()
+      end,
+      desc = "Arrow Buffer Mappings",
+      nowait = true,
+    },
+  },
   opts = {
     show_icons = true,
     leader_key = ";",

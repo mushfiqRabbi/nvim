@@ -1,37 +1,58 @@
+-- ============================================================================
+-- LAZY.NVIM BOOTSTRAP
+-- ============================================================================
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   -- bootstrap lazy.nvim
   -- stylua: ignore
-  vim.fn.system({ "git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", "--branch=stable", lazypath })
+  vim.fn.system({
+    "git", "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable",
+    lazypath
+  })
 end
----@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
+-- ============================================================================
+-- LAZY.NVIM SETUP
+-- ============================================================================
+
 require("lazy").setup({
+  -- ==========================================================================
+  -- PLUGIN SPECIFICATIONS
+  -- ==========================================================================
+
   spec = {
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
 
     -- import any extras modules here
 
-    -- INFO: CODING
-    -- { import = "lazyvim.plugins.extras.coding.codeium" },
+    -- ========================================================================
+    -- CODING ENHANCEMENTS
+    -- ========================================================================
     { import = "lazyvim.plugins.extras.coding.yanky" },
     { import = "lazyvim.plugins.extras.coding.mini-surround" },
-    -- { import = "lazyvim.plugins.extras.coding.luasnip" },
 
-    -- INFO: EDITOR
+    -- ========================================================================
+    -- EDITOR FEATURES
+    -- ========================================================================
     { import = "lazyvim.plugins.extras.editor.snacks_picker" },
     { import = "lazyvim.plugins.extras.editor.dial" },
     { import = "lazyvim.plugins.extras.editor.inc-rename" },
     { import = "lazyvim.plugins.extras.editor.mini-diff" },
-    -- { import = "lazyvim.plugins.extras.editor.navic" },
-    -- { import = "lazyvim.plugins.extras.editor.telescope" },
 
-    -- INFO: FORMATTING
+    -- ========================================================================
+    -- CODE FORMATTING
+    -- ========================================================================
     { import = "lazyvim.plugins.extras.formatting.prettier" },
 
-    -- INFO: LANGUAGES
+    -- ========================================================================
+    -- LANGUAGE SUPPORT
+    -- ========================================================================
     { import = "lazyvim.plugins.extras.lang.docker" },
     { import = "lazyvim.plugins.extras.lang.git" },
     { import = "lazyvim.plugins.extras.lang.json" },
@@ -42,27 +63,39 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.typescript" },
     { import = "lazyvim.plugins.extras.lang.yaml" },
 
-    -- INFO: LINTING
+    -- ========================================================================
+    -- CODE LINTING
+    -- ========================================================================
     { import = "lazyvim.plugins.extras.linting.eslint" },
 
-    -- INFO: UI
-    -- { import = "lazyvim.plugins.extras.ui.mini-indentscope" },
+    -- ========================================================================
+    -- USER INTERFACE
+    -- ========================================================================
     { import = "lazyvim.plugins.extras.ui.treesitter-context" },
-    -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
 
-    -- INFO: UTIL
+    -- ========================================================================
+    -- UTILITIES
+    -- ========================================================================
     { import = "lazyvim.plugins.extras.util.mini-hipatterns" },
     { import = "lazyvim.plugins.extras.util.dot" },
-    -- { import = "lazyvim.plugins.extras.util.project" },
 
-    -- INFO: VSCODE
+    -- ========================================================================
+    -- VSCODE INTEGRATION
+    -- ========================================================================
     { import = "lazyvim.plugins.extras.vscode" },
 
-    -- INFO: MODIFIED/ADDED
+    -- ========================================================================
+    -- CUSTOM PLUGINS
+    -- ========================================================================
     { import = "plugins.modified" },
     { import = "plugins.added" },
     { import = "plugins" },
   },
+
+  -- ==========================================================================
+  -- DEFAULT PLUGIN SETTINGS
+  -- ==========================================================================
+
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
     -- If you know what you're doing, you can set this to `true` to have all your custom plugins lazy-loaded by default.
@@ -72,11 +105,21 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
+
+  -- ==========================================================================
+  -- INSTALLATION SETTINGS
+  -- ==========================================================================
+
   install = { colorscheme = { "tokyonight", "habamax" } },
   -- ui = {
   --   border = "single",
   -- },
   checker = { enabled = true }, -- automatically check for plugin updates
+
+  -- ==========================================================================
+  -- PERFORMANCE OPTIMIZATION
+  -- ==========================================================================
+
   performance = {
     rtp = {
       -- disable some rtp plugins
@@ -92,6 +135,11 @@ require("lazy").setup({
       },
     },
   },
+
+  -- ==========================================================================
+  -- ROCKS CONFIGURATION
+  -- ==========================================================================
+
   rocks = {
     hererocks = true,
   },
