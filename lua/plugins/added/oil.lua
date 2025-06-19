@@ -11,7 +11,6 @@ return {
   ---@type oil.SetupOpts
   opts = {
     use_default_keymaps = false,
-    watch_for_changes = true,
     float = {
       padding = 0,
       -- max_width and max_height can be integers or a float between 0 and 1 (e.g. 0.4 for 40%)

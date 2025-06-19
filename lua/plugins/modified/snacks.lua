@@ -2,6 +2,23 @@ return {
   "folke/snacks.nvim",
   keys = {
     {
+      "<leader><space>",
+      function()
+        Snacks.picker.smart()
+      end,
+      desc = "Smart Find Files",
+    },
+    {
+      "<leader>ff",
+      function()
+        Snacks.picker.files({
+          hidden = true,
+          ignored = true,
+        })
+      end,
+      desc = "Find Files",
+    },
+    {
       "<leader>/",
       function()
         Snacks.picker.lines()

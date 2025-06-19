@@ -12,15 +12,10 @@ return {
       bind_to_cwd = true,
       filtered_items = {
         hide_dotfiles = false,
-        hide_by_name = {
-          ".git",
-          ".vscode",
-        },
-        always_show = {
-          ".env",
-          ".env.local",
-          ".ignore",
-          ".cspell",
+        hide_gitignored = true,
+        always_show_by_pattern = { -- uses glob style patterns
+          ".env*", -- Files starting with .env (like .env, .env.local, .env.production)
+          "*.env", -- Files ending with .env (like app.env, config.env)
         },
       },
     },
