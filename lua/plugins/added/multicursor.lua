@@ -356,7 +356,7 @@ return {
     -- -- Disable and enable cursors.
     -- set({ "n", "x" }, "<c-q>", mc.toggleCursor)
     --
-    -- -- NOTE: ADVANCE KEYMAPS
+    -- -- NOTE ADVANCE KEYMAPS
     -- --
     -- -- Pressing `gaip` will add a cursor on each line of a paragraph.
     -- set("n", "ga", mc.addCursorOperator)

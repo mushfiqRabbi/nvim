@@ -13,7 +13,6 @@ return {
       function()
         Snacks.picker.files({
           hidden = true,
-          ignored = true,
         })
       end,
       desc = "Find Files",
