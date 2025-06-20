@@ -7,6 +7,16 @@ return {
   -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
   lazy = true,
 
+  keys = {
+    {
+      "<leader>o",
+      function()
+        require("oil").open_float()
+      end,
+      desc = "Open Oil",
+    },
+  },
+
   ---@module 'oil'
   ---@type oil.SetupOpts
   opts = {
