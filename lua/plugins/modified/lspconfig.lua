@@ -2,12 +2,13 @@ return {
   "neovim/nvim-lspconfig",
   opts = {
     diagnostics = {
-      virtual_text = {
-        severity = {
-          max = vim.diagnostic.severity.INFO,
-        },
-        -- prefix = "■",
-      },
+      virtual_text = false,
+      -- virtual_text = {
+      --   severity = {
+      --     max = vim.diagnostic.severity.INFO,
+      --   },
+      --   -- prefix = "■",
+      -- },
       float = {
         border = "solid",
       },
