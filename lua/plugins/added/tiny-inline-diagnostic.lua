@@ -15,7 +15,7 @@ return {
         },
         multilines = {
           enabled = true,
-          always_show = false,
+          always_show = true,
         },
         overflow = {
           padding = 5,
