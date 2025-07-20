@@ -1,5 +1,6 @@
 return {
   "williamboman/mason.nvim",
+  keys = { { "<leader>cm", false } },
   opts = function(_, opts)
     local servers = {
       -- "codespell",

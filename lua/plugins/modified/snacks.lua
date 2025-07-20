@@ -93,22 +93,20 @@ return {
       mode = { "n", "v" },
       desc = "Search and Replace",
     },
-
-    {
-      "<leader>Ss",
-      function()
-        Snacks.scratch.select()
-      end,
-      desc = "Select Scratch Buffer",
-    },
-
-    {
-      "<leader>Sr",
-      function()
-        Snacks.picker.resume()
-      end,
-      desc = "Search Resume",
-    },
+    -- {
+    --   "<leader>Ss",
+    --   function()
+    --     Snacks.scratch.select()
+    --   end,
+    --   desc = "Select Scratch Buffer",
+    -- },
+    -- {
+    --   "<leader>Sr",
+    --   function()
+    --     Snacks.picker.resume()
+    --   end,
+    --   desc = "Search Resume",
+    -- },
   },
   ---@type snacks.Config
   opts = {

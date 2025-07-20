@@ -33,10 +33,10 @@ return {
             if node.type == "directory" then
               target_item = vim.fn.fnamemodify(node.path, ":t") -- Get just the directory name
               parent_path = vim.fn.fnamemodify(node.path, ":h") -- Get parent directory
-              require("oil").open_float(parent_path)
+              require("oil").toggle_float(parent_path)
             elseif node.type == "file" then
               target_item = vim.fn.fnamemodify(node.path, ":t") -- Get just the filename
-              require("oil").open_float(node._parent_id)
+              require("oil").toggle_float(node._parent_id)
             else
               vim.print("Not a file or directory")
               return

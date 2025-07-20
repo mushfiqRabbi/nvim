@@ -11,9 +11,9 @@ return {
     {
       "<leader>o",
       function()
-        require("oil").open_float()
+        require("oil").toggle_float()
       end,
-      desc = "Open Oil",
+      desc = "Toggle Oil",
     },
   },
 
