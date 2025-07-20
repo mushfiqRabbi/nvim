@@ -5,12 +5,9 @@ return {
   config = function()
     require("tiny-inline-diagnostic").setup({
       signs = {
-        left = " ",
-        right = " ",
+        left = "",
+        right = "",
         diag = "●",
-      },
-      blend = {
-        factor = 0.22,
       },
       options = {
         show_source = {
@@ -18,7 +15,7 @@ return {
         },
         multilines = {
           enabled = true,
-          always_show = true,
+          always_show = false,
         },
         overflow = {
           padding = 5,
