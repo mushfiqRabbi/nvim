@@ -4,11 +4,6 @@ return {
   priority = 1000, -- needs to be loaded in first
   config = function()
     require("tiny-inline-diagnostic").setup({
-      signs = {
-        left = "",
-        right = "",
-        diag = "●",
-      },
       options = {
         show_source = {
           enabled = true,
