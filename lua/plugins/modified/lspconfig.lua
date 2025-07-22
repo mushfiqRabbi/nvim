@@ -16,7 +16,9 @@ return {
       },
       servers = {
         cssls = {},
-        cssmodules_ls = {},
+        cssmodules_ls = {
+          filetypes = { "javascriptreact", "typescriptreact" },
+        },
         emmet_language_server = {},
         html = {},
       },
