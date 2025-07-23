@@ -15,6 +15,7 @@ return {
       { "<leader>M", icon = { icon = "" } },
       { "<leader>s", group = "+search/replace" },
       { "<leader>t", group = "+todo", icon = { icon = "" } },
+      { "<leader>tT", icon = { icon = "" } },
     },
     win = {
       no_overlap = false,
