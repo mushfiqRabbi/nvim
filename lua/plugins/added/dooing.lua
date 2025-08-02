@@ -24,8 +24,8 @@ return {
         on_missing = "auto_create",
       },
       keymaps = {
-        toggle_window = "<leader>tT",
-        open_project_todo = "<leader>tt",
+        toggle_window = "<leader>tg",
+        open_project_todo = "<leader>tl",
       },
     })
   end,
