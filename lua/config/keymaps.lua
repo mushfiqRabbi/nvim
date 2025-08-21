@@ -50,6 +50,9 @@ local ai = require("util.ai")
 
 -- Keymaps for AI context assistant
 vim.keymap.set({ "n", "v" }, "<leader>ai", function()
+  -- Set kitty layout to splits
+  vim.system({ "kitty", "@", "goto-layout", "splits" })
+
   local prompt = ai.generate_ai_context()
   ai.launch_ai(prompt, { type = "window" })
 end, { desc = "AI Context Assistant" })
@@ -72,3 +75,4 @@ vim.keymap.del("n", "<leader>gG")
 vim.keymap.del("n", "<leader>l")
 vim.keymap.del("n", "<leader>td")
 vim.keymap.del("n", "<leader>tD")
+
