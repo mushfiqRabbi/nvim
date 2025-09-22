@@ -29,6 +29,42 @@ return {
       nested_tasks = {
         indent = 3,
       },
+      priorities = {
+        {
+          name = "signal",
+          weight = 12,
+        },
+        {
+          name = "important",
+          weight = 4,
+        },
+        {
+          name = "urgent",
+          weight = 2,
+        },
+      },
+      priority_groups = {
+        max = {
+          members = {},
+          color = nil,
+          hl_group = "DiagnosticHint",
+        },
+        high = {
+          members = { "important", "urgent" },
+          color = nil,
+          hl_group = "DiagnosticError",
+        },
+        medium = {
+          members = { "important" },
+          color = nil,
+          hl_group = "DiagnosticWarn",
+        },
+        low = {
+          members = { "urgent" },
+          color = nil,
+          hl_group = "DiagnosticInfo",
+        },
+      },
       -- keymaps = {
       --   toggle_window = "<leader>tg",
       --   open_project_todo = "<leader>tl",
