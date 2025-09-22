@@ -29,11 +29,11 @@ return {
       nested_tasks = {
         indent = 3,
       },
-      keymaps = {
-        toggle_window = "<leader>tg",
-        open_project_todo = "<leader>tl",
-        delete_todo = "d",
-      },
+      -- keymaps = {
+      --   toggle_window = "<leader>tg",
+      --   open_project_todo = "<leader>tl",
+      --   delete_todo = "d",
+      -- },
     })
   end,
 }

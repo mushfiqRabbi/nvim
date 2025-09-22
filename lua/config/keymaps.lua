@@ -73,6 +73,5 @@ vim.keymap.del("n", "<leader>dps")
 vim.keymap.del("n", "<leader>gg")
 vim.keymap.del("n", "<leader>gG")
 vim.keymap.del("n", "<leader>l")
-vim.keymap.del("n", "<leader>td")
-vim.keymap.del("n", "<leader>tD")
-
+-- vim.keymap.del("n", "<leader>td")
+-- vim.keymap.del("n", "<leader>tD")
