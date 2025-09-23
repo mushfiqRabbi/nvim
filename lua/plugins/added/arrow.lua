@@ -2,7 +2,7 @@ return {
   -- NOTE: FORKED
   "mushfiqRabbi/arrow.nvim",
   dependencies = {
-    { "echasnovski/mini.icons" },
+    { "nvim-mini/mini.icons" },
   },
   keys = {
     {
