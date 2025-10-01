@@ -16,6 +16,7 @@ return {
       },
       menu = {
         draw = {
+          gap = 2,
           columns = {
             { "label", "label_description", gap = 2 },
             { "kind_icon", "kind" },
