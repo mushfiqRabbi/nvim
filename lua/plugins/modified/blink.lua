@@ -31,6 +31,21 @@ return {
       },
     },
 
+    cmdline = {
+      enabled = true,
+      keymap = { preset = "inherit" },
+      completion = {
+        menu = {
+          auto_show = true,
+          draw = {
+            columns = {
+              { "label" },
+            },
+          },
+        },
+      },
+    },
+
     fuzzy = {
       sorts = {
         function(a, b)
