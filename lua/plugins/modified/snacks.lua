@@ -285,6 +285,10 @@ return {
         git_hl = true,
       },
     },
+    words = {
+      enabled = false,
+      -- debounce = 100,
+    },
     ---@type table<string, snacks.win.Config>
     styles = {
       ---@diagnostic disable-next-line: missing-fields

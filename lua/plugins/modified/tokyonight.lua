@@ -16,6 +16,9 @@ return {
         fg = "#ffc777",
         bg = "#545c7e",
       }
+      hl.DiagnosticUnnecessary = {
+        fg = "#696e8f",
+      }
     end,
   },
 }
