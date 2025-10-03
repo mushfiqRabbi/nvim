@@ -6,10 +6,8 @@ return {
   opts = {
     keymap = {
       preset = "enter",
-      ["<C-space>"] = { "show", "hide", "fallback" },
-      -- ["<C-e>"] = {},
-      ["<A-e>"] = { "show_documentation", "hide_documentation", "fallback" },
     },
+
     completion = {
       list = {
         max_items = 7,
@@ -44,6 +42,7 @@ return {
           },
         },
         menu = {
+          auto_show = true,
           draw = {
             columns = {
               { "label" },
