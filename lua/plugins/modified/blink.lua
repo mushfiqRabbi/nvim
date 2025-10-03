@@ -32,17 +32,25 @@ return {
     },
 
     cmdline = {
-      enabled = true,
-      keymap = { preset = "inherit" },
+      keymap = {
+        preset = "inherit",
+        ["<CR>"] = { "accept_and_enter", "fallback" },
+      },
       completion = {
+        list = {
+          selection = {
+            preselect = true,
+            auto_insert = true,
+          },
+        },
         menu = {
-          auto_show = true,
           draw = {
             columns = {
               { "label" },
             },
           },
         },
+        ghost_text = { enabled = true },
       },
     },
 
