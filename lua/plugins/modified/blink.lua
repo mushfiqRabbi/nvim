@@ -9,15 +9,17 @@ return {
     },
 
     completion = {
-      list = {
-        max_items = 7,
-      },
       menu = {
         draw = {
-          gap = 2,
-          columns = {
-            { "label", "label_description", gap = 2 },
-            { "kind_icon", "kind" },
+          components = {
+            label = {
+              ellipsis = true,
+              width = { max = 20 },
+            },
+            label_description = {
+              ellipsis = true,
+              width = { max = 15 },
+            },
           },
         },
       },
