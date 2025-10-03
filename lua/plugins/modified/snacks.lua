@@ -93,6 +93,22 @@ return {
       mode = { "n", "v" },
       desc = "Search and Replace",
     },
+    {
+      "<leader>rn",
+      function()
+        Snacks.words.jump(1, true)
+      end,
+      mode = { "n" },
+      desc = "Next Word",
+    },
+    {
+      "<leader>rp",
+      function()
+        Snacks.words.jump(-1, true)
+      end,
+      mode = { "n" },
+      desc = "Previous Word",
+    },
     -- {
     --   "<leader>Ss",
     --   function()
@@ -286,8 +302,8 @@ return {
       },
     },
     words = {
-      enabled = false,
-      -- debounce = 100,
+      enabled = true,
+      debounce = 100,
     },
     ---@type table<string, snacks.win.Config>
     styles = {
