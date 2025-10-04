@@ -14,11 +14,9 @@ return {
           components = {
             label = {
               ellipsis = true,
-              width = { max = 20 },
             },
             label_description = {
               ellipsis = true,
-              width = { max = 15 },
             },
           },
         },
