@@ -42,11 +42,6 @@ return {
         },
         menu = {
           auto_show = true,
-          draw = {
-            columns = {
-              { "label" },
-            },
-          },
         },
         ghost_text = { enabled = true },
       },
