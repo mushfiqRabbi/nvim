@@ -32,11 +32,11 @@ return {
     cmdline = {
       keymap = {
         preset = "inherit",
+        ["<CR>"] = { "accept_and_enter", "fallback" },
       },
       completion = {
         list = {
           selection = {
-            preselect = true,
             auto_insert = true,
           },
         },
