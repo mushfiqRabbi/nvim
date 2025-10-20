@@ -65,11 +65,9 @@ return {
           hl_group = "DiagnosticInfo",
         },
       },
-      -- keymaps = {
-      --   toggle_window = "<leader>tg",
-      --   open_project_todo = "<leader>tl",
-      --   delete_todo = "d",
-      -- },
+      keymaps = {
+        create_nested_task = "n",
+      },
     })
   end,
 }
