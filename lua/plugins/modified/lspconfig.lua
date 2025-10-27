@@ -26,12 +26,15 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
-    opts = function()
-      local keys = require("lazyvim.plugins.lsp.keymaps").get()
-      keys[#keys + 1] = {
-        "<leader>cl",
-        false,
-      }
-    end,
+    opts = {
+      servers = {
+        -- Kemaps
+        ["*"] = {
+          keys = {
+            { "<leader>cl", false },
+          },
+        },
+      },
+    },
   },
 }
