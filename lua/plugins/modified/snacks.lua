@@ -153,9 +153,9 @@ return {
     explorer = {
       enabled = false,
     },
-    bigfile = {
-      line_length = 100000,
-    },
+    -- bigfile = {
+    --   line_length = 100000,
+    -- },
     indent = {
       indent = {
         char = "▏",
