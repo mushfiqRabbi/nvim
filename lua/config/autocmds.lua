@@ -96,3 +96,27 @@ vim.api.nvim_create_autocmd("LspDetach", {
     stop_client_timeout(args.data.client_id, lsp_detach[args.data.client_id].timer)
   end,
 })
+
+-- Auto-delete completed dooing tasks when vim exits
+vim.api.nvim_create_autocmd("VimLeavePre", {
+  callback = function()
+    -- Safely try to delete completed tasks
+    local success, err = pcall(function()
+      local state = require("dooing.state")
+      -- Load todos first to ensure we have the current state
+      state.load_todos()
+      if state and state.todos and #state.todos > 0 then
+        state.delete_completed()
+      end
+    end)
+
+    if not success then
+      -- Only notify if dooing module exists but had an error
+      -- Don't show error if dooing simply isn't installed
+      local module_exists, _ = pcall(require, "dooing.state")
+      if module_exists then
+        vim.notify("Error auto-deleting completed tasks: " .. tostring(err), vim.log.levels.WARN, { title = "Dooing" })
+      end
+    end
+  end,
+})
