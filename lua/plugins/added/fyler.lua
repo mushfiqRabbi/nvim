@@ -8,21 +8,32 @@ return {
       "<leader>e",
       function()
         local old_win = vim.api.nvim_get_current_win()
-        local was_open = require("fyler.views.finder")._current ~= nil
-        require("fyler").toggle({ dir = LazyVim.root() })
-        -- If fyler was just opened (wasn't open before), navigate to current file and switch back to original window
         local finder = require("fyler.views.finder")
-        if
-          not was_open
-          and finder._current
+        local is_open = finder._current ~= nil
           and finder._current.win
           and finder._current.win:has_valid_winid()
-        then
-          -- Navigate to current file after a short delay to ensure fyler is fully loaded
+
+        if is_open then
+          require("fyler").close()
+        else
+          -- Ensure clean state and open with smooth focus management
+          require("fyler").close()
           vim.defer_fn(function()
-            require("fyler").navigate(vim.api.nvim_buf_get_name(0))
-          end, 100)
-          vim.api.nvim_set_current_win(old_win)
+            require("fyler").open({ dir = LazyVim.root() })
+
+            -- Switch back to original window immediately to prevent focus steal
+            vim.defer_fn(function()
+              vim.api.nvim_set_current_win(old_win)
+
+              -- Then navigate to current file after a delay
+              vim.defer_fn(function()
+                local buf_name = vim.api.nvim_buf_get_name(0)
+                if buf_name ~= "" then
+                  require("fyler").navigate(buf_name)
+                end
+              end, 200)
+            end, 10) -- Very short delay to switch focus back quickly
+          end, 50)
         end
       end,
       desc = "Toggle Fyler (root dir)",
@@ -31,21 +42,32 @@ return {
       "<leader>E",
       function()
         local old_win = vim.api.nvim_get_current_win()
-        local was_open = require("fyler.views.finder")._current ~= nil
-        require("fyler").toggle({ dir = vim.uv.cwd() })
-        -- If fyler was just opened (wasn't open before), navigate to current file and switch back to original window
         local finder = require("fyler.views.finder")
-        if
-          not was_open
-          and finder._current
+        local is_open = finder._current ~= nil
           and finder._current.win
           and finder._current.win:has_valid_winid()
-        then
-          -- Navigate to current file after a short delay to ensure fyler is fully loaded
+
+        if is_open then
+          require("fyler").close()
+        else
+          -- Ensure clean state and open with smooth focus management
+          require("fyler").close()
           vim.defer_fn(function()
-            require("fyler").navigate(vim.api.nvim_buf_get_name(0))
-          end, 100)
-          vim.api.nvim_set_current_win(old_win)
+            require("fyler").open({ dir = vim.uv.cwd() })
+
+            -- Switch back to original window immediately to prevent focus steal
+            vim.defer_fn(function()
+              vim.api.nvim_set_current_win(old_win)
+
+              -- Then navigate to current file after a delay
+              vim.defer_fn(function()
+                local buf_name = vim.api.nvim_buf_get_name(0)
+                if buf_name ~= "" then
+                  require("fyler").navigate(buf_name)
+                end
+              end, 200)
+            end, 10) -- Very short delay to switch focus back quickly
+          end, 50)
         end
       end,
       desc = "Toggle Fyler (cwd)",
