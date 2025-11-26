@@ -19,6 +19,10 @@ return {
       hl.DiagnosticUnnecessary = {
         fg = "#696e8f",
       }
+      hl.FylerIndentMarker = {
+        default = true,
+        fg = "#444a62",
+      }
     end,
   },
 }
