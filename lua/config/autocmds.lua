@@ -174,7 +174,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
       end
 
       -- Navigate to the current file in fyler without changing focus to fyler
-      if vim.bo.buftype == '' then
+      if vim.bo.buftype == "" then
         if finder_mgr._current then
           fyler.navigate(current_buf_name)
         end
@@ -186,7 +186,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
         if vim.api.nvim_win_is_valid(original_win) and vim.api.nvim_buf_is_valid(original_buf) then
           vim.api.nvim_set_current_win(original_win)
         end
-      end, 0)  -- Minimal delay to allow operations to complete
+      end, 0) -- Minimal delay to allow operations to complete
     end
   end,
   desc = "Update fyler to follow current file across project roots",
