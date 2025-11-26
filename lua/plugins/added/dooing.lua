@@ -22,6 +22,9 @@ return {
         },
       },
       quick_keys = false,
+      notes = {
+        icon = "",
+      },
       per_project = {
         default_filename = ".dooing_local.json",
         on_missing = "auto_create",
