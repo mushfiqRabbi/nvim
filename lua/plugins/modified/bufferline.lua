@@ -4,18 +4,20 @@ return {
   opts = {
     options = {
       always_show_bufferline = true,
+      separator_style = "thick",
       sort_by = "insert_after_current",
-      offsets = {
-        {
-          filetype = "fyler",
-          text = function()
-            local root = require("lazyvim.util").root()
-            return vim.fn.fnamemodify(root, ":t")
-          end,
-          text_align = "center",
-          separator = true,
-        },
-      },
+
+      -- offsets = {
+      --   {
+      --     filetype = "fyler",
+      --     text = function()
+      --       local root = require("lazyvim.util").root()
+      --       return vim.fn.fnamemodify(root, ":t")
+      --     end,
+      --     text_align = "center",
+      --     separator = "█",
+      --   },
+      -- },
     },
   },
 }

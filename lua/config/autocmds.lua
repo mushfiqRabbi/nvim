@@ -126,91 +126,91 @@ vim.api.nvim_create_autocmd("VimLeavePre", {
 })
 
 -- Fyler cross-root follow functionality
-local last_win = nil
-local last_buf = nil
-
-vim.api.nvim_create_autocmd("WinEnter", {
-  callback = function()
-    -- Track the last window and buffer for reference when switching windows
-    last_win = vim.api.nvim_get_current_win()
-    last_buf = vim.api.nvim_get_current_buf()
-  end,
-  desc = "Track last window and buffer",
-})
-
-vim.api.nvim_create_autocmd("BufWinEnter", {
-  callback = function()
-    -- Only run if fyler is currently open and we're in a regular file buffer
-    local current_buf = vim.api.nvim_get_current_buf()
-    local current_buf_name = vim.api.nvim_buf_get_name(current_buf)
-    local buftype = vim.bo[current_buf].buftype
-
-    -- Skip for special buffer types (pickers, terminals, help, etc.)
-    if buftype ~= "" and buftype ~= "acwrite" then
-      return
-    end
-
-    -- Skip for fyler buffers
-    local is_fyler_buf = current_buf_name:match("^fyler://")
-    if is_fyler_buf then
-      return
-    end
-
-    -- Get current file's directory and the project root
-    local current_file_dir = vim.fn.fnamemodify(current_buf_name, ":p:h")
-    local project_root = require("lazyvim.util").root()
-
-    -- Check if fyler is currently open
-    local fyler = require("fyler")
-    local finder_mgr = require("fyler.views.finder")
-
-    if finder_mgr._current then
-      -- Store the original window and buffer at the beginning to be restored later
-      local original_win = vim.api.nvim_get_current_win()
-      local original_buf = vim.api.nvim_get_current_buf()
-
-      -- Check if we're coming from a special buffer (like a picker) to avoid focus issues
-      local from_special_buffer = false
-      if last_buf and vim.api.nvim_buf_is_valid(last_buf) then
-        local last_buf_ft = vim.bo[last_buf].filetype
-        local last_buf_bt = vim.bo[last_buf].buftype
-        from_special_buffer = (last_buf_bt ~= "" and last_buf_bt ~= "acwrite")
-          or last_buf_ft:match("picker")
-          or (last_buf_bt == "prompt" and last_buf_ft == "snacks_picker")
-      end
-
-      -- Get the directory of the current fyler instance
-      local current_fyler_dir = finder_mgr._current.dir
-
-      -- Check if current file is in a different project root
-      local current_file_in_fyler_dir =
-        vim.startswith(current_file_dir .. "/", current_fyler_dir .. "/")
-      local fyler_dir_in_current_file =
-        vim.startswith(current_fyler_dir .. "/", current_file_dir .. "/")
-
-      -- If the current file is not under the same project root as the current fyler instance
-      if not current_file_in_fyler_dir and not fyler_dir_in_current_file then
-        -- Close current instance and open new one with the correct root
-        finder_mgr.close()
-        fyler.open({ dir = project_root })
-      end
-
-      -- Navigate to the current file in fyler without changing focus to fyler
-      if vim.bo.buftype == "" then
-        if finder_mgr._current then
-          fyler.navigate(current_buf_name)
-        end
-      end
-
-      -- Restore focus to the original window after all operations
-      -- Use a small delay to ensure all internal operations complete first
-      -- Don't restore focus if we came from a special buffer like a picker
-      vim.defer_fn(function()
-        if not from_special_buffer and vim.api.nvim_win_is_valid(original_win) and vim.api.nvim_buf_is_valid(original_buf) then
-          vim.api.nvim_set_current_win(original_win)
-        end
-      end, 50) -- Slightly longer delay to allow picker to fully close
-    end
-  end,
-  desc = "Update fyler to follow current file across project roots",
-})
+-- local last_win = nil
+-- local last_buf = nil
+--
+-- vim.api.nvim_create_autocmd("WinEnter", {
+--   callback = function()
+--     -- Track the last window and buffer for reference when switching windows
+--     last_win = vim.api.nvim_get_current_win()
+--     last_buf = vim.api.nvim_get_current_buf()
+--   end,
+--   desc = "Track last window and buffer",
+-- })
+--
+-- vim.api.nvim_create_autocmd("BufWinEnter", {
+--   callback = function()
+--     -- Only run if fyler is currently open and we're in a regular file buffer
+--     local current_buf = vim.api.nvim_get_current_buf()
+--     local current_buf_name = vim.api.nvim_buf_get_name(current_buf)
+--     local buftype = vim.bo[current_buf].buftype
+--
+--     -- Skip for special buffer types (pickers, terminals, help, etc.)
+--     if buftype ~= "" and buftype ~= "acwrite" then
+--       return
+--     end
+--
+--     -- Skip for fyler buffers
+--     local is_fyler_buf = current_buf_name:match("^fyler://")
+--     if is_fyler_buf then
+--       return
+--     end
+--
+--     -- Get current file's directory and the project root
+--     local current_file_dir = vim.fn.fnamemodify(current_buf_name, ":p:h")
+--     local project_root = require("lazyvim.util").root()
+--
+--     -- Check if fyler is currently open
+--     local fyler = require("fyler")
+--     local finder_mgr = require("fyler.views.finder")
+--
+--     if finder_mgr._current then
+--       -- Store the original window and buffer at the beginning to be restored later
+--       local original_win = vim.api.nvim_get_current_win()
+--       local original_buf = vim.api.nvim_get_current_buf()
+--
+--       -- Check if we're coming from a special buffer (like a picker) to avoid focus issues
+--       local from_special_buffer = false
+--       if last_buf and vim.api.nvim_buf_is_valid(last_buf) then
+--         local last_buf_ft = vim.bo[last_buf].filetype
+--         local last_buf_bt = vim.bo[last_buf].buftype
+--         from_special_buffer = (last_buf_bt ~= "" and last_buf_bt ~= "acwrite")
+--           or last_buf_ft:match("picker")
+--           or (last_buf_bt == "prompt" and last_buf_ft == "snacks_picker")
+--       end
+--
+--       -- Get the directory of the current fyler instance
+--       local current_fyler_dir = finder_mgr._current.dir
+--
+--       -- Check if current file is in a different project root
+--       local current_file_in_fyler_dir =
+--         vim.startswith(current_file_dir .. "/", current_fyler_dir .. "/")
+--       local fyler_dir_in_current_file =
+--         vim.startswith(current_fyler_dir .. "/", current_file_dir .. "/")
+--
+--       -- If the current file is not under the same project root as the current fyler instance
+--       if not current_file_in_fyler_dir and not fyler_dir_in_current_file then
+--         -- Close current instance and open new one with the correct root
+--         finder_mgr.close()
+--         fyler.open({ dir = project_root })
+--       end
+--
+--       -- Navigate to the current file in fyler without changing focus to fyler
+--       if vim.bo.buftype == "" then
+--         if finder_mgr._current then
+--           fyler.navigate(current_buf_name)
+--         end
+--       end
+--
+--       -- Restore focus to the original window after all operations
+--       -- Use a small delay to ensure all internal operations complete first
+--       -- Don't restore focus if we came from a special buffer like a picker
+--       vim.defer_fn(function()
+--         if not from_special_buffer and vim.api.nvim_win_is_valid(original_win) and vim.api.nvim_buf_is_valid(original_buf) then
+--           vim.api.nvim_set_current_win(original_win)
+--         end
+--       end, 50) -- Slightly longer delay to allow picker to fully close
+--     end
+--   end,
+--   desc = "Update fyler to follow current file across project roots",
+-- })

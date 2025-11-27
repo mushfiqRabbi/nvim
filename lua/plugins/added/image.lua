@@ -4,6 +4,7 @@ return {
   config = function()
     ---@diagnostic disable-next-line: missing-fields
     require("image").setup({
+      processor = "magick_cli",
       tmux_show_only_in_active_window = true,
     })
   end,
