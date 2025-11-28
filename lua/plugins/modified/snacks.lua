@@ -313,7 +313,7 @@ return {
       -- },
       ---@diagnostic disable-next-line: missing-fields
       notification = {
-        focusable = false,
+        -- focusable = false,
         -- border = "single",
       },
       ---@diagnostic disable-next-line: missing-fields

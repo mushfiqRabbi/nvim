@@ -6,8 +6,10 @@ return {
 
       { "<leader>b", group = "+buffer/btop" },
 
-      { "<leader>d", group = "+dotfile", icon = { icon = "" } },
+      { "<leader>d", group = "+diff/dotfile", icon = { icon = "" } },
+      { "<leader>df", icon = { icon = "" } },
       { "<leader>di", icon = { icon = "" } },
+      { "<leader>dr", icon = { icon = "󰳏" } },
       { "<leader>ds", icon = { icon = "󱀌" } },
 
       { "<leader>l", group = "+lazy", icon = { icon = "󰒲" } },
