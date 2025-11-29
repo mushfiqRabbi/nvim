@@ -96,6 +96,7 @@ return {
             },
             list = {
               keys = {
+                ["<Esc>"] = false,
                 ["<c-w><c-w>"] = function(_)
                   vim.cmd("wincmd w")
                   vim.cmd("wincmd w")
