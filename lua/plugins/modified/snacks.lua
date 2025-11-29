@@ -108,6 +108,11 @@ return {
                 end,
               },
             },
+            preview = {
+              keys = {
+                ["<Esc>"] = false,
+              },
+            },
           },
         },
         projects = {
