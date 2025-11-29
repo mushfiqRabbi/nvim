@@ -1,17 +1,16 @@
 return {
   "mason-org/mason.nvim",
-  keys = { { "<leader>cm", false } },
   opts = function(_, opts)
+    -- List of language servers and tools to ensure are installed
     local servers = {
-      -- "codespell",
-      "cspell",
-      "prettierd",
-      "rustywind",
-      "gitlint",
+      "cspell", -- Spell checker
+      "prettierd", -- JavaScript/TypeScript formatter
+      "rustywind", -- Tailwind CSS class sorting
+      "gitlint", -- Git commit message linter
     }
 
-    ---@diagnostic disable-next-line: unused-local
-    for index, value in ipairs(servers) do
+    -- Add these servers to the ensure_installed list
+    for _, value in ipairs(servers) do
       table.insert(opts.ensure_installed, value)
     end
   end,

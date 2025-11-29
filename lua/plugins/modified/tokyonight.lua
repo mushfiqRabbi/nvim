@@ -2,8 +2,7 @@ return {
   "folke/tokyonight.nvim",
   opts = {
     style = "moon",
-    ---@diagnostic disable-next-line: unused-local
-    on_highlights = function(hl, c)
+    on_highlights = function(hl, _)
       -- NOTE shade and tint from https://noeldelgado.github.io/shadowlord/#3b4261
       hl.IndentDark = {
         fg = "#323852",

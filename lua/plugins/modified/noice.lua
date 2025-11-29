@@ -8,17 +8,5 @@ return {
         },
       },
     },
-    -- views = {
-    --   cmdline_popupmenu = {
-    --     -- border = {
-    --     --   style = "single",
-    --     -- },
-    --   },
-    --   cmdline_popup = {
-    --     -- border = {
-    --     --   style = "single",
-    --     -- },
-    --   },
-    -- },
   },
 }

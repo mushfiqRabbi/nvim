@@ -14,7 +14,7 @@ return {
       nowait = true,
     },
     {
-      "m",
+      ",",
       function()
         require("arrow.buffer_ui").openMenu()
       end,
@@ -25,7 +25,7 @@ return {
   opts = {
     show_icons = true,
     leader_key = ";",
-    buffer_leader_key = "m",
+    buffer_leader_key = ",",
     separate_save_and_remove = true,
     global_bookmarks = true,
     per_buffer_config = {

@@ -4,12 +4,6 @@ return {
     opts = {
       diagnostics = {
         virtual_text = false,
-        -- virtual_text = {
-        --   severity = {
-        --     max = vim.diagnostic.severity.INFO,
-        --   },
-        --   -- prefix = "■",
-        -- },
         float = {
           border = "solid",
         },
@@ -65,19 +59,6 @@ return {
             "vue",
             "svelte",
             "templ",
-          },
-        },
-      },
-    },
-  },
-  {
-    "neovim/nvim-lspconfig",
-    opts = {
-      servers = {
-        -- Kemaps
-        ["*"] = {
-          keys = {
-            { "<leader>cl", false },
           },
         },
       },

@@ -3,32 +3,11 @@ return {
   "folke/snacks.nvim",
   keys = {
     {
-      "<leader><space>",
-      function()
-        Snacks.picker.smart()
-      end,
-      desc = "Smart Find Files",
-    },
-    {
-      "<leader>ff",
-      function()
-        Snacks.picker.files({
-          hidden = true,
-        })
-      end,
-      desc = "Find Files",
-    },
-    {
-      "<leader>/",
-      function()
-        Snacks.picker.lines()
-      end,
-      desc = "Buffer Lines",
-      -- false,
-    },
-    {
       "<leader>e",
-      false,
+      function()
+        Snacks.explorer()
+      end,
+      desc = "File Explorer",
     },
     {
       "<leader>E",
@@ -68,41 +47,6 @@ return {
       end,
       desc = "Projects",
     },
-    {
-      "<leader>S",
-      false,
-    },
-    {
-      "<leader>sR",
-      function()
-        local grug = require("grug-far")
-
-        grug.open({
-          transient = true,
-          prefills = {
-            paths = LazyVim.root(),
-          },
-        })
-      end,
-      mode = { "n", "v" },
-      desc = "Search and Replace",
-    },
-    {
-      "<leader>rn",
-      function()
-        Snacks.words.jump(1, true)
-      end,
-      mode = { "n" },
-      desc = "Next Word",
-    },
-    {
-      "<leader>rp",
-      function()
-        Snacks.words.jump(-1, true)
-      end,
-      mode = { "n" },
-      desc = "Previous Word",
-    },
   },
 
   ---@type snacks.Config
@@ -131,12 +75,6 @@ return {
         },
       },
     },
-    explorer = {
-      enabled = false,
-    },
-    -- bigfile = {
-    --   line_length = 100000,
-    -- },
     indent = {
       indent = {
         char = "▏",
@@ -160,6 +98,30 @@ return {
           builtin = false,
           cmd = {
             "delta",
+          },
+        },
+      },
+      sources = {
+        explorer = {
+          enter = false,
+          win = {
+            input = {
+              keys = {
+                ["<Esc>"] = "toggle_focus",
+              },
+            },
+            list = {
+              keys = {
+                ["<c-w><c-w>"] = function(_)
+                  vim.cmd("wincmd w")
+                  vim.cmd("wincmd w")
+                end,
+                ["<c-w>w"] = function(_)
+                  vim.cmd("wincmd w")
+                  vim.cmd("wincmd w")
+                end,
+              },
+            },
           },
         },
       },

@@ -5,14 +5,12 @@ return {
   event = "VeryLazy",
   dependencies = {
     "SmiteshP/nvim-navic",
-    -- "nvim-tree/nvim-web-devicons",
   },
   config = function()
     require("barbecue").setup({
       create_autocmd = false,
     })
     vim.api.nvim_create_autocmd({
-      -- "WinScrolled",
       "BufWinEnter",
       "CursorHold",
       "InsertLeave",

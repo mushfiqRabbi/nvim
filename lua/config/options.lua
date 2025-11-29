@@ -52,14 +52,6 @@ vim.g.lazyvim_prettier_needs_config = false
 -- DIAGNOSTIC CONFIGURATION
 -- ============================================================================
 
--- vim.diagnostic.config({
---   virtual_lines = {
---     severity = {
---       min = vim.diagnostic.severity.WARN,
---     },
---   },
--- })
-
 vim.diagnostic.config({
   virtual_text = false,
 })
