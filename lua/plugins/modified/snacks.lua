@@ -5,13 +5,16 @@ return {
     {
       "<leader>e",
       function()
-        Snacks.explorer()
+        Snacks.explorer({ cwd = LazyVim.root() })
       end,
-      desc = "File Explorer",
+      desc = "File Explorer (root)",
     },
     {
       "<leader>E",
-      false,
+      function()
+        Snacks.explorer()
+      end,
+      desc = "File Explorer (cwd)",
     },
     {
       "<leader>fe",
