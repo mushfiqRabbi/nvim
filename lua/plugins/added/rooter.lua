@@ -1,6 +1,7 @@
 return {
   "airblade/vim-rooter",
   event = "VeryLazy",
+  enabled = false,
   config = function()
     vim.cmd([[
       let g:rooter_buftypes = ['']

@@ -90,6 +90,38 @@ vim.api.nvim_create_autocmd("LspDetach", {
   end,
 })
 
+-- ============================================================================
+-- AUTO-CHANGE DIRECTORY
+-- ============================================================================
+
+-- Auto-change directory to project root when root detection changes
+vim.api.nvim_create_autocmd({ "LspAttach", "BufWritePost", "DirChanged", "BufEnter" }, {
+  group = vim.api.nvim_create_augroup("LazyVimAutoCD", { clear = true }),
+  callback = function(event)
+    vim.schedule(function()
+      -- Check if buffer still exists and is a normal file buffer before changing directory
+      if vim.api.nvim_buf_is_valid(event.buf) then
+        local buftype = vim.bo[event.buf].buftype
+
+        -- Only change directory for normal file buffers, not special buffers like help, terminal, etc.
+        if buftype == "" then
+          local success, lazyvim_root = pcall(require, "lazyvim.util.root")
+          if success then
+            local root = lazyvim_root.get({ buf = event.buf })
+            if root and root ~= vim.uv.cwd() and vim.uv.fs_stat(root) then
+              vim.cmd("cd " .. vim.fn.fnameescape(root))
+            end
+          end
+        end
+      end
+    end)
+  end,
+})
+
+-- ============================================================================
+-- CLEANUP TASKS
+-- ============================================================================
+
 -- Auto-delete completed dooing tasks when vim exits
 vim.api.nvim_create_autocmd("VimLeavePre", {
   callback = function()

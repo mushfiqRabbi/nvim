@@ -96,6 +96,8 @@ return {
           include = { ".env*" },
           enter = false,
           layout = {
+            hidden = { "input" },
+            auto_hide = { "input" },
             cycle = false,
           },
           win = {
@@ -107,14 +109,6 @@ return {
             list = {
               keys = {
                 ["<Esc>"] = false,
-                ["<c-w><c-w>"] = function(_)
-                  vim.cmd("wincmd w")
-                  vim.cmd("wincmd w")
-                end,
-                ["<c-w>w"] = function(_)
-                  vim.cmd("wincmd w")
-                  vim.cmd("wincmd w")
-                end,
               },
             },
             preview = {
