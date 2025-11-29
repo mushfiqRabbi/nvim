@@ -97,6 +97,7 @@ return {
             list = {
               keys = {
                 ["<Esc>"] = false,
+                ["<c-m>"] = "toggle_maximize",
                 ["<c-w><c-w>"] = function(_)
                   vim.cmd("wincmd w")
                   vim.cmd("wincmd w")
