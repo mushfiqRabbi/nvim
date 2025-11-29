@@ -104,6 +104,9 @@ return {
       sources = {
         explorer = {
           enter = false,
+          layout = {
+            cycle = false,
+          },
           win = {
             input = {
               keys = {
