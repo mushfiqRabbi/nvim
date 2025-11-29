@@ -71,6 +71,12 @@ return {
       },
     },
     picker = {
+      hidden = true,
+      icons = {
+        git = {
+          ignored = "",
+        },
+      },
       previewers = {
         git = {
           builtin = false,
@@ -84,6 +90,7 @@ return {
       },
       sources = {
         explorer = {
+          include = { ".env*" },
           enter = false,
           layout = {
             cycle = false,
@@ -91,7 +98,7 @@ return {
           win = {
             input = {
               keys = {
-                ["<Esc>"] = false,
+                ["<Esc>"] = "toggle_focus",
               },
             },
             list = {
@@ -113,6 +120,9 @@ return {
               },
             },
           },
+        },
+        files = {
+          hidden = true,
         },
         projects = {
           dev = {
