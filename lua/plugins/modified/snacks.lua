@@ -24,26 +24,7 @@ return {
     {
       "<leader>fp",
       function()
-        Snacks.picker.projects({
-          dev = {
-            "~/",
-            "~/.config",
-            "~/net/build",
-            "~/net/test",
-            "~/garage/build",
-            "~/garage/test",
-          },
-          patterns = {
-            ".git",
-            "_darcs",
-            ".hg",
-            ".bzr",
-            ".svn",
-            "package.json",
-            "Makefile",
-            ".root",
-          },
-        })
+        Snacks.picker.projects()
       end,
       desc = "Projects",
     },
@@ -125,6 +106,26 @@ return {
                 end,
               },
             },
+          },
+        },
+        projects = {
+          dev = {
+            "~/",
+            "~/.config",
+            "~/net/build",
+            "~/net/test",
+            "~/garage/build",
+            "~/garage/test",
+          },
+          patterns = {
+            ".git",
+            "_darcs",
+            ".hg",
+            ".bzr",
+            ".svn",
+            "package.json",
+            "Makefile",
+            ".root",
           },
         },
       },
