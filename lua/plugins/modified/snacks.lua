@@ -17,14 +17,6 @@ return {
       desc = "File Explorer (cwd)",
     },
     {
-      "<leader>fe",
-      false,
-    },
-    {
-      "<leader>fE",
-      false,
-    },
-    {
       "<leader>fp",
       function()
         Snacks.picker.projects()
@@ -156,6 +148,14 @@ return {
     words = {
       enabled = true,
       debounce = 100,
+    },
+
+    styles = {
+      notification = {
+        wo = {
+          wrap = false,
+        },
+      },
     },
   },
 }
