@@ -153,7 +153,7 @@ return {
     styles = {
       notification = {
         wo = {
-          wrap = false,
+          wrap = true,
         },
       },
     },
