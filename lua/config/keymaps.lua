@@ -14,13 +14,11 @@ vim.keymap.set({ "n", "v" }, "<leader>ai", function()
   -- Set kitty layout to splits
   vim.system({ "kitty", "@", "goto-layout", "splits" })
 
-  local prompt = ai.generate_ai_context()
-  ai.launch_ai(prompt, { type = "window" })
+  ai.launch_ai({ type = "window" })
 end, { desc = "AI Context Assistant" })
 
 vim.keymap.set({ "n", "v" }, "<leader>aI", function()
-  local prompt = ai.generate_ai_context()
-  ai.launch_ai(prompt, { type = "tab" })
+  ai.launch_ai({ type = "tab" })
 end, { desc = "AI Context Assistant (New Tab)" })
 
 -- ============================================================================
