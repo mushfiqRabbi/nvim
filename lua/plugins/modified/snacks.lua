@@ -69,7 +69,21 @@ return {
       hidden = true,
       icons = {
         git = {
-          ignored = "",
+          deleted = "󰍷 ",
+          ignored = " ",
+          modified = "󰧞",
+        },
+        diagnostics = {
+          Error = "󰯸 ",
+          Warn = "󰰮 ",
+          Hint = "󰰁 ",
+          Info = "󰰄 ",
+        },
+        lsp = {
+          unavailable = " ",
+          enabled = " ",
+          disabled = " ",
+          attached = "󰁦 ",
         },
       },
       previewers = {
