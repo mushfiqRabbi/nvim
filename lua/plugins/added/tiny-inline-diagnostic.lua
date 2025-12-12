@@ -1,3 +1,4 @@
+---@module "tiny-inline-diagnostic"
 return {
   "rachartier/tiny-inline-diagnostic.nvim",
   event = "VeryLazy", -- Or `LspAttach`
@@ -15,6 +16,10 @@ return {
         overflow = {
           padding = 5,
         },
+      },
+      signs = {
+        left = "",
+        right = "",
       },
     })
   end,
