@@ -23,7 +23,7 @@ return {
         fg = "#444a62",
       }
       hl.SnacksPickerPathHidden = {
-        link = "SnacksPickerFile",
+        fg = "#6b7391",
       }
     end,
   },
