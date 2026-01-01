@@ -113,7 +113,7 @@ require("lazy").setup({
   -- ui = {
   --   border = "single",
   -- },
-  checker = { enabled = true }, -- automatically check for plugin updates
+  checker = { enabled = false }, -- automatically check for plugin updates
 
   -- ==========================================================================
   -- PERFORMANCE OPTIMIZATION
