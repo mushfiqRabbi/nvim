@@ -8,7 +8,7 @@ function M.launch_ai(config)
   -- Add window-specific options
   if config.type == "window" then
     table.insert(cmd, "--location=vsplit")
-    table.insert(cmd, "--bias=40")
+    table.insert(cmd, "--bias=45")
   end
 
   -- Add common options and command

@@ -52,6 +52,8 @@ return {
       },
     },
     keymaps = {
+      toggle_window = "<leader>tt", -- Toggle global todos
+      open_project_todo = "<leader>tT", -- Toggle project-specific todos
       create_nested_task = "n",
     },
   },
