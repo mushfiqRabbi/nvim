@@ -27,22 +27,26 @@ end, { desc = "AI Context Assistant (New Tab)" })
 
 -- Open yazi file manager in snacks terminal with Neovim socket
 vim.keymap.set("n", "<leader>fy", function()
-  local servername = vim.v.servername or ""
-  if servername ~= "" then
-    Snacks.terminal("yazi", {
-      win = { border = "solid" },
-      env = { NVIM_LISTEN_ADDRESS = servername },
-    })
-  else
-    Snacks.terminal("yazi", {
-      win = { border = "solid" },
-    })
-    vim.notify(
-      "NVIM_LISTEN_ADDRESS not available. Start Neovim with --listen for editor integration.",
-      vim.log.levels.WARN
-    )
+  local current_file = vim.fn.expand("%:p")
+  local buftype = vim.bo.buftype
+  local servername = vim.v.servername
+
+  local yazi_cmd = "yazi"
+
+  if buftype == "" and current_file ~= "" and vim.fn.filereadable(current_file) == 1 then
+    yazi_cmd = string.format("yazi %s", vim.fn.shellescape(current_file))
   end
-end, { desc = "Yazi File Manager (with Neovim socket)" })
+
+  local opts = {
+    win = { border = "solid" },
+  }
+
+  if servername and servername ~= "" then
+    opts.env = { NVIM_LISTEN_ADDRESS = servername }
+  end
+
+  Snacks.terminal(yazi_cmd, opts)
+end, { desc = "Yazi File Manager" })
 
 -- ============================================================================
 -- DELETED KEYMAPS
