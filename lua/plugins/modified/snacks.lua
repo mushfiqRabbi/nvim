@@ -51,6 +51,9 @@ return {
         },
       },
     },
+    image = {
+      enabled = true,
+    },
     indent = {
       indent = {
         char = "▏",
