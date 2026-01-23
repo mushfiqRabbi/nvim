@@ -16,7 +16,7 @@ function M.launch_ai(config)
     "--cwd=current",
     "zsh",
     "-ic",
-    "mise x node@latest -- qwen -i",
+    "opencode",
   })
 
   vim.system(cmd)
