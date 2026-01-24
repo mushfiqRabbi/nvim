@@ -14,8 +14,6 @@ function M.launch_ai(config)
   -- Add common options and command
   vim.list_extend(cmd, {
     "--cwd=current",
-    "zsh",
-    "-ic",
     "opencode",
   })
 
