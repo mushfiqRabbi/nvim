@@ -1,6 +1,6 @@
----@module "vscode-diff"
+---@module "codediff"
 return {
-  "esmuellert/vscode-diff.nvim",
+  "esmuellert/codediff.nvim",
   dependencies = { "MunifTanjim/nui.nvim" },
   keys = {
     {
