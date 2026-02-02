@@ -3,6 +3,7 @@ return {
   event = "VeryLazy",
   opts = {
     save_path = vim.fn.expand("~") .. "/.dooing_global.json",
+    pretty_print_json = true, -- Pretty-print JSON output (requires jq or python)
     timestamp = {
       enabled = false,
     },
