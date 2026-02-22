@@ -6,6 +6,12 @@ return {
       always_show_bufferline = true,
       separator_style = "thick",
       sort_by = "insert_after_current",
+      offsets = {
+        {
+          filetype = "fyler",
+          text = "═════ File Explorer ═════",
+        },
+      },
     },
   },
 }

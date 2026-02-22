@@ -4,17 +4,19 @@ return {
   keys = {
     {
       "<leader>e",
-      function()
-        Snacks.explorer({ cwd = LazyVim.root() })
-      end,
-      desc = "File Explorer (root)",
+      false,
     },
     {
       "<leader>E",
-      function()
-        Snacks.explorer()
-      end,
-      desc = "File Explorer (cwd)",
+      false,
+    },
+    {
+      "<leader>fe",
+      false,
+    },
+    {
+      "<leader>fE",
+      false,
     },
     {
       "<leader>fp",
@@ -50,6 +52,9 @@ return {
           { icon = " ", key = "q", desc = "Quit", action = ":qa" },
         },
       },
+    },
+    explorer = {
+      enabled = false,
     },
     image = {
       enabled = true,
@@ -99,32 +104,6 @@ return {
         },
       },
       sources = {
-        explorer = {
-          include = { ".env*" },
-          enter = false,
-          layout = {
-            hidden = { "input" },
-            auto_hide = { "input" },
-            cycle = false,
-          },
-          win = {
-            input = {
-              keys = {
-                ["<Esc>"] = "toggle_focus",
-              },
-            },
-            list = {
-              keys = {
-                ["<Esc>"] = false,
-              },
-            },
-            preview = {
-              keys = {
-                ["<Esc>"] = false,
-              },
-            },
-          },
-        },
         files = {
           hidden = true,
         },
@@ -167,6 +146,7 @@ return {
 
     styles = {
       notification = {
+        focusable = false,
         wo = {
           wrap = true,
         },
