@@ -9,7 +9,7 @@ return {
       offsets = {
         {
           filetype = "fyler",
-          text = "═════ File Explorer ═════",
+          text = "═══ File Explorer ═══",
         },
       },
     },
