@@ -47,6 +47,7 @@ vim.opt.ttimeoutlen = 0
 -- ============================================================================
 
 vim.g.lazyvim_prettier_needs_config = false
+vim.g.lazyvim_ts_lsp = "tsgo"
 
 -- ============================================================================
 -- DIAGNOSTIC CONFIGURATION
