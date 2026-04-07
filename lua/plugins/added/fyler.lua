@@ -2,7 +2,7 @@
 return {
   "A7Lavinraj/fyler.nvim",
   dependencies = { "nvim-mini/mini.icons" },
-  branch = "stable",
+  -- branch = "stable",
   lazy = false,
   keys = {
     {
